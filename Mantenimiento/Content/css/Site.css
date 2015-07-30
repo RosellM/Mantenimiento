@@ -1,0 +1,292 @@
+﻿.circleBase {
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    height: 100%;
+    border-radius: 50%;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    display: inline-block;
+}
+
+.circleGreen {
+    background-color: #02C63D;
+}
+
+.circleRed {
+    background-color: #CE0B0B;
+}
+
+.circleYellow {
+    background-color: #FAF611;
+}
+
+.ayudaExterno {
+    font-size: 2em;
+}
+
+.campoObligatorio {
+    color: #C92400;
+    font-weight: bold;
+}
+
+.divGridWraper {
+    display: block;
+    width: 100%;
+    text-align: right;
+    margin-top: 10px;
+}
+
+.divFormWraper {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.encabezado {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.maindeclaralab {
+    margin-top: 80px;
+    min-height: 420px;
+    overflow: auto;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .maindeclaralab {
+        margin-top: 100px;
+    }
+}
+
+.social-icon {
+    background-image: url(../images/social-sprite.png);
+    display: block;
+    text-indent: -9999px;
+}
+
+    .social-icon.twitter {
+        width: 24px;
+        height: 20px;
+        background-position: -34px 0px;
+    }
+
+    .social-icon:hover {
+        opacity: 0.5;
+    }
+
+.main-footer {
+    margin-top: 5%;
+    background-color: #28292a;
+    min-height: 56px;
+    color: white;
+    padding: 20px 0 30px;
+    text-align: left;
+}
+
+    .main-footer .list-info {
+        line-height: auto;
+        background-color: #393b3c;
+        padding: 30px 0px 70px;
+        margin-bottom: 30px;
+    }
+
+        .main-footer .list-info form label {
+            font-weight: 300;
+            margin-bottom: 15px;
+            line-height: 110%;
+        }
+
+        .main-footer .list-info form .form-group-icon {
+            max-width: none;
+            font-size: 14px;
+        }
+
+        .main-footer .list-info form .form-control {
+            font-size: 14px;
+        }
+
+        .main-footer .list-info h5 {
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .main-footer .list-info a {
+            color: #4a90e2;
+            font-size: 14px;
+        }
+
+            .main-footer .list-info a:hover {
+                text-decoration: none;
+            }
+
+        .main-footer .list-info p {
+            margin-bottom: 15px;
+        }
+
+        .main-footer .list-info ul {
+            margin: 0px 0px 60px;
+            padding: 0px;
+        }
+
+            .main-footer .list-info ul li {
+                list-style-type: none;
+                margin: 0px;
+                padding: 0px;
+                line-height: 110%;
+            }
+
+                .main-footer .list-info ul li a {
+                    color: white;
+                    text-decoration: none;
+                    font-size: 14px;
+                }
+
+                    .main-footer .list-info ul li a:hover {
+                        text-decoration: underline;
+                    }
+
+    .main-footer .row > div {
+        margin-bottom: 15px;
+    }
+
+    .main-footer p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 136%;
+        height: auto;
+        position: static;
+    }
+
+
+
+.UsuarioLogin {
+    color: #ff6a00;
+    /*text-shadow: 5px 5px 2px white;*/
+}
+
+
+/*  ************ CUESTIONARIOS ****************** */
+
+.divCuestionario{
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px gray;
+    padding: 30px;
+    margin: 25px;
+}
+
+.divHeaderCuestionario{
+    padding: 10px;   
+}
+
+/*checkbox para cuestionarios*/ 
+.radio input[type="radio"],
+.radio-inline input[type="radio"],
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"] {
+  float: none;
+  margin-left: -20px;
+}
+
+
+
+.leadPreguntaText {
+  margin-bottom: 20px;
+  font-size: 16.099999999999998px;
+  font-weight: 200;
+  line-height: 1.4;
+  text-align:justify;
+}
+
+
+
+ .hrCuestionario{
+    /*color: blue;*/
+    height: 0.5px;
+    background-color: orange;
+    margin-top: 60px;
+}
+
+/*  ************ Bloque Condiciones de uso ****************** */
+
+#target {
+    border: 1px solid black;
+    padding: 18px;
+    margin: 5px;
+    border-radius: 10px;
+    box-shadow: 10px 10px gray;
+}
+
+    #target p {
+        text-align: justify;
+    }
+
+    #target h2 {
+        color: #ff6a00;
+        text-shadow: 5px 5px 5px gray;
+    }
+
+        #target h2:hover {
+            color: black;
+        }
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+
+.cssPreguntaCarga {
+    width: 500px;
+    height:200px;
+    border: 1px solid #f3a519;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px #f3a519;
+
+
+    padding: 10px;
+    position: absolute;
+
+    -moz-animation: simple-animation 3s;
+    -o-animation: simple-animation 3s;
+    -webkit-animation: simple-animation 3s;
+    animation: simple-animation 3s;
+
+
+    left:250px;
+
+
+
+}
+
+
+@-moz-keyframes simple-animation {
+    0% {
+        left: 0;
+    }     
+    100% {
+        left: 250px;
+    }
+}
+
+@-webkit-keyframes simple-animation {
+    0% {
+        left: 0;
+    }     
+    100% {
+        left: 250px;
+    }
+}
+
+@keyframes simple-animation {
+    0% {
+        left: 0;
+    }     
+    100% {
+        left: 250px;
+    }
+}

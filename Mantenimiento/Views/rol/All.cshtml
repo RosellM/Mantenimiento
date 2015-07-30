@@ -1,0 +1,24 @@
+﻿@model Mantenimiento.Models.RolModel
+@{
+    ViewBag.Title = "Roles registrados";
+    Mantenimiento.Models.RolModel rol = ViewBag.rol;
+}
+
+<h2>Roles registrados</h2>
+
+
+<table class="table">
+    <tbody>
+         
+        @foreach (var m in rol.listarRoles())
+        {
+            <tr>
+                
+                <td> @m.id </td>
+                <td> @m.nombre </td>
+                <td> @m.descripcion </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

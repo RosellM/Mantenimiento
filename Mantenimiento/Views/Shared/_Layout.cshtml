@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @System.Web.Optimization.Styles.Render("~/Content/css")
+    @System.Web.Optimization.Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="~/Content/css/bootstrap.css" type="text/css" media="all" />
+</head>
+<body>
+ <nav style="max-width:1000px; text-align:center; margin:0.25em auto;margin-top:50px;">
+     <ul class="nav nav-pills nav-justified">
+         <li><a href="#">Inicio</a></li>
+         <li><a href="#">Roles</a></li>
+         <li><a href="#">Estados</a></li>
+         <li><a href="#">Ciudades</a></li>
+         <li><a href="#">Personas</a></li>
+         <li><a href="#">Test</a></li>
+     </ul>
+ </nav>
+  
+ 
+    @RenderBody()
+
+    @System.Web.Optimization.Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
