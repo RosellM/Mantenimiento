@@ -41,5 +41,13 @@ namespace Mantenimiento.Controllers
         
         }
 
+        public ActionResult Eliminar(int id) 
+        {
+
+            RolModel rl = new RolModel();
+            rl.eliminarRol(id);
+            ViewBag.Rol = rl;
+            return View("All");
+        }
     }
 }

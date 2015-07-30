@@ -10,10 +10,12 @@ namespace Mantenimiento.Models
     public class RolModel
     {
         [Display(Name="NOMBRE DEL NUEVO ROL")]
+        [Required]
         public string nombre { get; set; }
 
 
         [Display(Name = "DESCRIPCION DEL NUEVO ROL")]
+        [Required]
         public string descripcion { get; set; }
 
 
@@ -25,6 +27,13 @@ namespace Mantenimiento.Models
         public void nuevoRol(roles rol) 
         {
             new RolesNeg().nuevoRol(rol);
+        }
+
+        public void eliminarRol(int id) 
+        {
+
+            new RolesNeg().eliminarRol(id);
+
         }
 
     }
