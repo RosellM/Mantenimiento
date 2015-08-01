@@ -9,6 +9,7 @@ namespace Mantenimiento.Models
 {
     public class RolModel
     {
+        public int id  { get; set; }
         [Display(Name="NOMBRE DEL NUEVO ROL")]
         [Required]
         public string nombre { get; set; }
@@ -34,6 +35,16 @@ namespace Mantenimiento.Models
 
             new RolesNeg().eliminarRol(id);
 
+        }
+
+        public void modificarRol(roles rol) 
+        {
+            new RolesNeg().modificarRol(rol);
+        }
+
+        public roles obtenerRolById(int id)
+        {
+          return  new RolesNeg().obtenerRolById(id);
         }
 
     }

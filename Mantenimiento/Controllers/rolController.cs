@@ -20,7 +20,7 @@ namespace Mantenimiento.Controllers
             return View(rol);
         }
 
-
+        [HttpPost]
         public ActionResult Nuevo(RolModel rol) 
         {
             RolModel rl = new RolModel();
@@ -48,6 +48,32 @@ namespace Mantenimiento.Controllers
             rl.eliminarRol(id);
             ViewBag.Rol = rl;
             return View("All");
+        }
+
+        [HttpPost]
+        public ActionResult modificarRol(RolModel rol)
+        {
+            RolModel rl = new RolModel();
+            roles Rol = new roles();
+            Rol.id = rol.id;
+            Rol.descripcion = rol.descripcion;
+            Rol.nombre = rol.nombre;
+            rl.modificarRol(Rol);
+            ViewBag.Rol = rl;
+            return View("All");
+
+        }
+
+
+        public ActionResult modificarRol(int id) {
+            int aux = id;
+            roles Rol = new roles();
+            RolModel rl = new RolModel();
+            Rol = rl.obtenerRolById(id);
+            rl.nombre = Rol.nombre;
+            rl.descripcion = Rol.descripcion;
+            rl.id = aux;
+            return View(rl);
         }
     }
 }

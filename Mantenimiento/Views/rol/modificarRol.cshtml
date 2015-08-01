@@ -1,0 +1,20 @@
+﻿@model Mantenimiento.Models.RolModel
+@{
+    ViewBag.Title = "Modificar Rol";
+}
+
+<h2>Modificar Rol</h2>
+
+@using (@Html.BeginForm("modificarRol", "rol"))
+{
+    @Html.LabelFor(model => model.nombre)
+    @Html.TextBoxFor(model => model.nombre)
+    @Html.LabelFor(model => model.descripcion)
+    @Html.TextBoxFor(model => model.descripcion)
+    <input type="submit" value="Modificar" />
+
+}
+
+
+
+
