@@ -1,0 +1,16 @@
+﻿@model Mantenimiento.Models.estadoModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Nuevo rol</h2>
+@using (@Html.BeginForm("Nuevo", "estado"))
+{
+    @Html.LabelFor(model => model.nombre);
+    @Html.TextBoxFor(model => model.nombre);
+
+    @Html.LabelFor(model => model.descripcion)
+    @Html.TextBoxFor(model => model.descripcion)
+    <input type="submit" value="Registrar" />
+}
