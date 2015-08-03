@@ -35,6 +35,16 @@ namespace Mantenimiento.Models
             exito =  new estadoNeg().eliminarEstado(id);
         }
 
+        public estados obtenerEstadoPorId(int id)
+        {
+            return new estadoNeg().obtenerEstadoPorId(id);
+        }
+
+        public void modificarEstado(estados estado)
+        {
+            new estadoNeg().modificarEstado(estado);
+        }
+
 
     }
 }

@@ -45,9 +45,36 @@ namespace Mantenimiento.Controllers
 
         public ActionResult eliminarEstado(int id) 
         {
-
             new estadoModel().eliminarEstado(id);
             return View("Index",new estadoModel());
+        }
+
+        public ActionResult modificarEstado(int id)
+        {
+            estados estado = null;
+            estadoModel estm = new estadoModel();
+            estado = new estadoModel().obtenerEstadoPorId(id);
+            estm.id = estado.id;
+            estm.nombre = estado.nombre;
+            estm.descripcion = estado.descripcion;
+            return View(estm);
+        }
+
+        [HttpPost]
+        public ActionResult modificarEstado(estadoModel estado) 
+        {
+            if (ModelState.IsValid) 
+            {
+                estados est = new estados();
+                est.descripcion = estado.descripcion;
+                est.nombre = estado.nombre;
+                est.id = estado.id;
+                new estadoModel().modificarEstado(est);
+                return View("Index",new estadoModel());
+            }
+
+            return View("modificarEstado");
+
         }
 
     }

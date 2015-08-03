@@ -20,9 +20,8 @@
                 <td> @m.id </td>
                 <td> @m.nombre </td>
                 <td> @m.descripcion </td>
-                <td> <center><button onclick="location.href='@Url.Action("modificarRol", "rol", new { id = m.id })';" class=" btn btn-info"><span class="glyphicon glyphicon-pencil">Modificar</span></button> </center></td>
+                <td> <center><button onclick="location.href='@Url.Action("modificarEstado", "estado", new { id = m.id })';" class=" btn btn-info"><span class="glyphicon glyphicon-pencil">Modificar</span></button> </center></td>
                 <td><center><button onclick="location.href='@Url.Action("eliminarEstado", "estado", new { id = m.id })';" class="btn btn-danger"><span class="glyphicon glyphicon-remove">Eliminar</span></button> </center></td>
-
             </tr>
         }
     </tbody>

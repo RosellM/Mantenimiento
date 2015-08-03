@@ -988,6 +988,7 @@
     <Content Include="Views\rol\modificarRol.cshtml" />
     <Content Include="Views\estado\Index.cshtml" />
     <Content Include="Views\estado\Nuevo.cshtml" />
+    <Content Include="Views\estado\modificarEstado.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
