@@ -1,0 +1,22 @@
+﻿@model Mantenimiento.Models.ciudadModel
+@{
+    ViewBag.Title = "modificar Ciudad";
+}
+
+<h2>modificar Ciudad</h2>
+@using (@Html.BeginForm("modificarCiudad", "ciudad"))
+{
+    @Html.LabelFor(model => model.nombre);
+    @Html.ValidationMessageFor(model => model.nombre)
+    @Html.TextBoxFor(model => model.nombre);
+
+    @Html.LabelFor(model => model.descripcion)
+    @Html.ValidationMessageFor(model => model.descripcion)
+    @Html.TextBoxFor(model => model.descripcion)
+    
+    @Html.LabelFor(model => model.nombreEstado)
+    @Html.TextBoxFor(model => model.state.nombre)
+    
+    @Html.DropDownListFor(model=> model.idEstado, Model.estados())
+    <input type="submit" value="Registrar" />
+}

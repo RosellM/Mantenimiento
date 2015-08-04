@@ -3,10 +3,10 @@
     ViewBag.Title = "nuevaCiudad";
 }
 
-<h2>nuevaCiudad</h2>
+<h2>nueva Ciudad</h2>
 
 
-@using (@Html.BeginForm("Nuevo", "ciudad"))
+@using (@Html.BeginForm("nuevaCiudad", "ciudad"))
 {
 
     @Html.DropDownListFor(model => model.idEstado, Model.estados(), "-- Seleccione estado --")

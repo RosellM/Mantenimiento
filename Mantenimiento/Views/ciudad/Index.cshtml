@@ -4,7 +4,7 @@
 }
 
 <h2>Ciudades registradas</h2>
-<center><button onclick="location.href='@Url.Action("Nuevo", "estado")';" class="btn btn-success" style="margin-bottom:50px; text-align:center; margin:2.53em auto;" "><span class=" glyphicon glyphicon-plus">Registrar nuevo estado</span></button></center>
+<center><button onclick="location.href='@Url.Action("nuevaCiudad", "ciudad")';" class="btn btn-success" style="margin-bottom:50px; text-align:center; margin:2.53em auto;" "><span class=" glyphicon glyphicon-plus">Registrar nueva ciudad</span></button></center>
 
 <table class="table table-striped" style="max-width:960px; text-align:center; margin:2.53em auto;">
     <tbody>
@@ -22,8 +22,8 @@
                 <td> @m.nombre </td>
                 <td> @m.descripcion </td>
                 <td> @Model.obtenerNombreEstado(m.idEstado).nombre </td>
-                <td> <center><button onclick="location.href='@Url.Action("modificarEstado", "estado", new { id = m.id })';" class=" btn btn-info"><span class="glyphicon glyphicon-pencil">Modificar</span></button> </center></td>
-                <td><center><button onclick="location.href='@Url.Action("eliminarEstado", "estado", new { id = m.id })';" class="btn btn-danger"><span class="glyphicon glyphicon-remove">Eliminar</span></button> </center></td>
+                <td> <center><button onclick="location.href='@Url.Action("modificarCiudad", "ciudad", new { id = m.id })';" class=" btn btn-info"><span class="glyphicon glyphicon-pencil">Modificar</span></button> </center></td>
+                <td><center><button onclick="location.href='@Url.Action("eliminarCiudad", "ciudad", new { id = m.id })';" class="btn btn-danger"><span class="glyphicon glyphicon-remove">Eliminar</span></button> </center></td>
             </tr>
         }
     </tbody>

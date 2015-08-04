@@ -993,6 +993,7 @@
     <Content Include="Views\estado\modificarEstado.cshtml" />
     <Content Include="Views\ciudad\Index.cshtml" />
     <Content Include="Views\ciudad\nuevaCiudad.cshtml" />
+    <Content Include="Views\ciudad\modificarCiudad.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

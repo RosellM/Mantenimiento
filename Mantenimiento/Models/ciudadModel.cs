@@ -11,7 +11,10 @@ namespace Mantenimiento.Models
 {
     public class ciudadModel
     {
+
+        public estados state { get; set; }
         public int id { get; set; }
+        [Required(ErrorMessage = "Campo requerido")]
         public int idEstado { get; set; }
         public string nombreEstado { get; set; }
         [Required(ErrorMessage="Campo requerido")]
@@ -34,6 +37,7 @@ namespace Mantenimiento.Models
 
         public estados obtenerNombreEstado(int idEstado) 
         {
+
             return new ciudadesNeg().nombreEstado(idEstado);
         }
 
@@ -51,6 +55,27 @@ namespace Mantenimiento.Models
 
             return listItems;
             
+        }
+
+        public ciudad obtenerCiudadPorId(int id)
+        {
+           return new ciudadesNeg().obtenerCiudadPorID(id);
+        }
+
+        public void modificarCiudad(ciudadModel ciudad)
+        {
+            ciudad cd = new ciudad();
+            cd.id = ciudad.id;
+            cd.idEstado = ciudad.idEstado;
+            cd.nombre = ciudad.nombre;
+            cd.descripcion = ciudad.descripcion;
+
+            new ciudadesNeg().modificarCiudad(cd);
+        }
+
+        public void eliminarEstado(int id)
+        {
+            new ciudadesNeg().eliminarCiudads(id);
         }
     }
 }
