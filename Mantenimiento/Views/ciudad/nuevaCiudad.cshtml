@@ -1,0 +1,17 @@
+﻿@model Mantenimiento.Models.ciudadModel
+@{
+    ViewBag.Title = "nuevaCiudad";
+}
+
+<h2>nuevaCiudad</h2>
+
+
+@using (@Html.BeginForm("Nuevo", "ciudad"))
+{
+
+    @Html.DropDownListFor(model => model.idEstado, Model.estados(), "-- Seleccione estado --")
+    @Html.TextBoxFor(model => model.nombre)
+    @Html.TextBoxFor(model => model.descripcion)
+
+    <input type="submit" value="Registrar" />
+}

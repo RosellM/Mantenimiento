@@ -1,0 +1,31 @@
+﻿@model Mantenimiento.Models.ciudadModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Ciudades registradas</h2>
+<center><button onclick="location.href='@Url.Action("Nuevo", "estado")';" class="btn btn-success" style="margin-bottom:50px; text-align:center; margin:2.53em auto;" "><span class=" glyphicon glyphicon-plus">Registrar nuevo estado</span></button></center>
+
+<table class="table table-striped" style="max-width:960px; text-align:center; margin:2.53em auto;">
+    <tbody>
+        <tr class="warning">
+            <td> Id  </td>
+            <td> Nombre</td>
+            <td> Descripcion</td>
+            <td> Estado </td>
+            <td colspan="2"> <center>Opciones</center> </td>
+        </tr>
+        @foreach (var m in Model.listarCiudad())
+        {
+            <tr>
+                <td> @m.id </td>
+                <td> @m.nombre </td>
+                <td> @m.descripcion </td>
+                <td> @Model.obtenerNombreEstado(m.idEstado).nombre </td>
+                <td> <center><button onclick="location.href='@Url.Action("modificarEstado", "estado", new { id = m.id })';" class=" btn btn-info"><span class="glyphicon glyphicon-pencil">Modificar</span></button> </center></td>
+                <td><center><button onclick="location.href='@Url.Action("eliminarEstado", "estado", new { id = m.id })';" class="btn btn-danger"><span class="glyphicon glyphicon-remove">Eliminar</span></button> </center></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
