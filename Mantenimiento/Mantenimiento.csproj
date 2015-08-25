@@ -124,12 +124,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Controllers\ciudadController.cs" />
     <Compile Include="Controllers\estadoController.cs" />
+    <Compile Include="Controllers\personasController.cs" />
     <Compile Include="Controllers\rolController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ciudadModel.cs" />
     <Compile Include="Models\estadoModel.cs" />
+    <Compile Include="Models\personasModel.cs" />
     <Compile Include="Models\RolModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -994,6 +996,9 @@
     <Content Include="Views\ciudad\Index.cshtml" />
     <Content Include="Views\ciudad\nuevaCiudad.cshtml" />
     <Content Include="Views\ciudad\modificarCiudad.cshtml" />
+    <Content Include="Views\personas\Index.cshtml" />
+    <Content Include="Views\personas\Nuevo.cshtml" />
+    <Content Include="Views\personas\modificarPersona.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

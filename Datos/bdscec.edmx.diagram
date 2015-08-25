@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7c0c9347938b4ec49344b8787a6c53bd" Name="Diagram1">
+        <EntityTypeShape EntityType="bdscecModel.ciudad" Width="1.5" PointX="8" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdscecModel.estados" Width="1.5" PointX="5.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdscecModel.personas" Width="1.5" PointX="10.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdscecModel.pregunta" Width="1.5" PointX="5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdscecModel.resultado" Width="1.5" PointX="7.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdscecModel.roles" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdscecModel.seccion" Width="1.5" PointX="5" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdscecModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdscecModel.test" Width="1.5" PointX="2.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdscecModel.usuario" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdscecModel.usuarioRol" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="bdscecModel.FK_ciudad_estados" ManuallyRouted="false" />
+        <AssociationConnector Association="bdscecModel.FK_personas_ciudad" ManuallyRouted="false" />
+        <AssociationConnector Association="bdscecModel.FK_pregunta_test" ManuallyRouted="false" />
+        <AssociationConnector Association="bdscecModel.FK_resultado_pregunta" ManuallyRouted="false" />
+        <AssociationConnector Association="bdscecModel.FK_usuarioRol_roles" ManuallyRouted="false" />
+        <AssociationConnector Association="bdscecModel.FK_seccion_test" ManuallyRouted="false" />
+        <AssociationConnector Association="bdscecModel.FK_usuarioRol_usuarios" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
