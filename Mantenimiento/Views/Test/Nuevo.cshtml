@@ -1,0 +1,15 @@
+﻿@model Mantenimiento.Models.TestModel
+@{
+    ViewBag.Title = "Nuevo Test";
+}
+
+<h2>Nuevo Test</h2>
+
+@using (@Html.BeginForm("Nuevo", "Test"))
+{
+
+    @Html.LabelFor(model => model.nombre)
+    @Html.TextBoxFor(model => model.nombre)
+
+    <input type="submit" value="Registrar" />
+}

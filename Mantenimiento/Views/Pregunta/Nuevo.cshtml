@@ -1,0 +1,17 @@
+﻿@model Mantenimiento.Models.PreguntaModel
+@{
+    ViewBag.Title = "Nuevo";
+}
+
+<h2>Nuevo</h2>
+
+@using (@Html.BeginForm("Nuevo", "Pregunta"))
+{
+    @Html.LabelFor(model=> model.id_test)
+    @Html.DropDownListFor(model => model.id_test, Model.listaTest(), "-- Seleccione test --")
+   
+    @Html.LabelFor(model => model.pregunta1)
+    @Html.TextBoxFor(model => model.pregunta1)
+
+    <input type="submit" value="Registrar" />
+}

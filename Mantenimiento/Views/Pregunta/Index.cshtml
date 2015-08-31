@@ -1,0 +1,29 @@
+﻿@model Mantenimiento.Models.PreguntaModel
+@{
+    ViewBag.Title = "Preguntas registradas";
+}
+
+<h2>Preguntas registradas</h2>
+
+<center><button onclick="location.href='@Url.Action("Nuevo", "Pregunta")';" class="btn btn-success" style="margin-bottom:50px; text-align:center; margin:2.53em auto;" "><span class=" glyphicon glyphicon-plus">Registrar nueva pregunta</span></button></center>
+
+<table class="table table-striped" style="max-width:960px; text-align:center; margin:2.53em auto;">
+    <tbody>
+        <tr class="warning">
+            <td> Id  </td>
+            <td> Pregunta </td>
+            <td> Nombre del test</td>
+            <td colspan="2"> <center>Opciones</center> </td>
+        </tr>
+        @foreach (var m in Model.listarPregunta())
+        {
+            <tr>
+                <td> @m.id </td>
+                <td> @m.pregunta1 </td>
+                <td> @m.test.nombre </td>
+                <td> <center><button onclick="location.href='@Url.Action("modificarPregunta", "Pregunta", new { id = m.id})';" class=" btn btn-info"><span class="glyphicon glyphicon-pencil">Modificar</span></button> </center></td>
+                <td><center><button onclick="location.href='@Url.Action("eliminarPregunta", "Pregunta", new { id = m.id })';" class="btn btn-danger"><span class="glyphicon glyphicon-remove">Eliminar</span></button> </center></td>
+            </tr>
+        }
+    </tbody>
+</table>
