@@ -18,11 +18,10 @@
         <EntityTypeShape EntityType="bdscecModel.usuarioRol" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
         <AssociationConnector Association="bdscecModel.FK_ciudad_estados" ManuallyRouted="false" />
         <AssociationConnector Association="bdscecModel.FK_personas_ciudad" ManuallyRouted="false" />
-        <AssociationConnector Association="bdscecModel.FK_pregunta_test" ManuallyRouted="false" />
-        <AssociationConnector Association="bdscecModel.FK_resultado_pregunta" ManuallyRouted="false" />
         <AssociationConnector Association="bdscecModel.FK_usuarioRol_roles" ManuallyRouted="false" />
         <AssociationConnector Association="bdscecModel.FK_seccion_test" ManuallyRouted="false" />
         <AssociationConnector Association="bdscecModel.FK_usuarioRol_usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="bdscecModel.FK_pregunta_seccion" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -123,19 +123,23 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Controllers\ciudadController.cs" />
+    <Compile Include="Controllers\cuestionarioController.cs" />
     <Compile Include="Controllers\estadoController.cs" />
     <Compile Include="Controllers\personasController.cs" />
     <Compile Include="Controllers\PreguntaController.cs" />
     <Compile Include="Controllers\rolController.cs" />
+    <Compile Include="Controllers\SeccionController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ciudadModel.cs" />
+    <Compile Include="Models\cuestionarioModel.cs" />
     <Compile Include="Models\estadoModel.cs" />
     <Compile Include="Models\personasModel.cs" />
     <Compile Include="Models\PreguntaModel.cs" />
     <Compile Include="Models\RolModel.cs" />
+    <Compile Include="Models\SeccionModel.cs" />
     <Compile Include="Models\TestModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -1009,6 +1013,12 @@
     <Content Include="Views\Pregunta\Index.cshtml" />
     <Content Include="Views\Pregunta\Nuevo.cshtml" />
     <Content Include="Views\Pregunta\modificarPregunta.cshtml" />
+    <Content Include="Views\Seccion\Index.cshtml" />
+    <Content Include="Views\Seccion\Nuevo.cshtml" />
+    <Content Include="Views\Seccion\modificarSeccion.cshtml" />
+    <Content Include="Views\cuestionario\Index.cshtml" />
+    <Content Include="Views\cuestionario\Secciones.cshtml" />
+    <Content Include="Views\cuestionario\IniciarTest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

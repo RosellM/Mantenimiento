@@ -61,12 +61,13 @@
       <DependentUpon>bdscec.edmx</DependentUpon>
     </Compile>
     <Compile Include="ciudadesDat.cs" />
+    <Compile Include="cuestionarioDat.cs" />
     <Compile Include="estadoDat.cs" />
     <Compile Include="personasDat.cs" />
     <Compile Include="PreguntaDat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResultadoDat.cs" />
     <Compile Include="RolesDat.cs" />
+    <Compile Include="SeccionDat.cs" />
     <Compile Include="TestDat.cs" />
   </ItemGroup>
   <ItemGroup>

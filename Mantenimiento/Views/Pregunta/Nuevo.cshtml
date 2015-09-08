@@ -7,11 +7,15 @@
 
 @using (@Html.BeginForm("Nuevo", "Pregunta"))
 {
-    @Html.LabelFor(model=> model.id_test)
-    @Html.DropDownListFor(model => model.id_test, Model.listaTest(), "-- Seleccione test --")
+    @Html.LabelFor(model=> model.id_seccion)
+    @Html.DropDownListFor(model => model.id_seccion, Model.listaSeccion(), "-- Seleccione la seccion --")
    
     @Html.LabelFor(model => model.pregunta1)
     @Html.TextBoxFor(model => model.pregunta1)
+
+    @Html.LabelFor(model => model.respuesta)
+    @Html.TextBoxFor(model => model.respuesta)
+
 
     <input type="submit" value="Registrar" />
 }

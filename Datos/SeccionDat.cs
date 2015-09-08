@@ -1,32 +1,31 @@
-﻿using Entidades;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Entidades;
+using System.Data.Entity.Validation;
+using System.Data.Entity;
 namespace Datos
 {
-    public class ResultadoDat
+   public class SeccionDat
     {
 
-        public List<resultado> listarresultado()
+        public List<seccion> listarseccion()
         {
-           
-                return new bdscecEntities().resultado.ToList();
-            
+
+            return new bdscecEntities().seccion.ToList();
+
         }
 
-        public void nuevoresultado(resultado resultado)
+        public void nuevoseccion(seccion seccion)
         {
             using (bdscecEntities bd = new bdscecEntities())
             {
 
                 try
                 {
-                    bd.resultado.Add(resultado);
+                    bd.seccion.Add(seccion);
                     bd.SaveChanges();
                 }
                 catch (DbEntityValidationException e)
@@ -37,14 +36,14 @@ namespace Datos
             }
         }
 
-        public void modificarresultado(resultado resultado)
+        public void modificarseccion(seccion seccion)
         {
-            resultado getresultado;
+            seccion getseccion;
             using (var ctx = new bdscecEntities())
             {
                 try
                 {
-                    getresultado = ctx.resultado.Where(s => s.id == resultado.id).FirstOrDefault<resultado>();
+                    getseccion = ctx.seccion.Where(s => s.id == seccion.id).FirstOrDefault<seccion>();
                 }
                 catch (DbEntityValidationException e)
                 {
@@ -53,11 +52,11 @@ namespace Datos
 
             }
 
-            if (getresultado != null)
+            if (getseccion != null)
             {
-
-                getresultado.respuesta = resultado.respuesta;
-                getresultado.id_pregunta = resultado.id_pregunta;
+                getseccion.id = seccion.id;
+                getseccion.id_test = seccion.id_test;
+                getseccion.nombre = seccion.nombre;
 
             }
 
@@ -65,29 +64,29 @@ namespace Datos
             using (var dbCtx = new bdscecEntities())
             {
 
-                dbCtx.Entry(getresultado).State = EntityState.Modified;
+                dbCtx.Entry(getseccion).State = EntityState.Modified;
 
                 dbCtx.SaveChanges();
             }
         }
 
-        public resultado obtenerresultadoPorId(int id)
+        public seccion obtenerseccionPorId(int id)
         {
             using (bdscecEntities bd = new bdscecEntities())
             {
-                resultado resultado = (from e in bd.resultado where e.id == id select e).First();
-                return resultado;
+                seccion seccion = (from e in bd.seccion where e.id == id select e).First();
+                return seccion;
             }
         }
 
-        public void eliminarresultado(int id)
+        public void eliminarseccion(int id)
         {
             using (bdscecEntities bd = new bdscecEntities())
             {
                 try
                 {
-                    var resultadoAEliminar = (from e in bd.resultado where e.id == id select e).First();
-                    bd.resultado.Remove(resultadoAEliminar);
+                    var seccionAEliminar = (from e in bd.seccion where e.id == id select e).First();
+                    bd.seccion.Remove(seccionAEliminar);
                     bd.SaveChanges();
                 }
                 catch (DbEntityValidationException e)
@@ -96,7 +95,6 @@ namespace Datos
                 }
             }
         }
-
 
     }
 }

@@ -37,7 +37,8 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="id_test" Type="int" Nullable="false" />
+          <Property Name="id_seccion" Type="int" Nullable="false" />
+          <Property Name="respuesta" Type="varchar" MaxLength="250" Nullable="false" />
           <Property Name="pregunta" Type="varchar" MaxLength="250" Nullable="false" />
         </EntityType>
         <EntityType Name="resultado">
@@ -45,8 +46,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="id_pregunta" Type="int" Nullable="false" />
-          <Property Name="respuesta" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="250" Nullable="false" />
         </EntityType>
         <EntityType Name="roles">
           <Key>
@@ -121,27 +121,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_pregunta_test">
-          <End Role="test" Type="Self.test" Multiplicity="1" />
+        <Association Name="FK_pregunta_seccion">
+          <End Role="seccion" Type="Self.seccion" Multiplicity="1" />
           <End Role="pregunta" Type="Self.pregunta" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="test">
+            <Principal Role="seccion">
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="pregunta">
-              <PropertyRef Name="id_test" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_resultado_pregunta">
-          <End Role="pregunta" Type="Self.pregunta" Multiplicity="1" />
-          <End Role="resultado" Type="Self.resultado" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="pregunta">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="resultado">
-              <PropertyRef Name="id_pregunta" />
+              <PropertyRef Name="id_seccion" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -201,13 +189,9 @@
             <End Role="ciudad" EntitySet="ciudad" />
             <End Role="personas" EntitySet="personas" />
           </AssociationSet>
-          <AssociationSet Name="FK_pregunta_test" Association="Self.FK_pregunta_test">
-            <End Role="test" EntitySet="test" />
+          <AssociationSet Name="FK_pregunta_seccion" Association="Self.FK_pregunta_seccion">
+            <End Role="seccion" EntitySet="seccion" />
             <End Role="pregunta" EntitySet="pregunta" />
-          </AssociationSet>
-          <AssociationSet Name="FK_resultado_pregunta" Association="Self.FK_resultado_pregunta">
-            <End Role="pregunta" EntitySet="pregunta" />
-            <End Role="resultado" EntitySet="resultado" />
           </AssociationSet>
           <AssociationSet Name="FK_seccion_test" Association="Self.FK_seccion_test">
             <End Role="test" EntitySet="test" />
@@ -262,19 +246,17 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="id_test" Type="Int32" Nullable="false" />
           <Property Name="pregunta1" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="test" Relationship="Self.FK_pregunta_test" FromRole="pregunta" ToRole="test" />
-          <NavigationProperty Name="resultado" Relationship="Self.FK_resultado_pregunta" FromRole="pregunta" ToRole="resultado" />
+          <Property Name="id_seccion" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="seccion" Relationship="bdscecModel.FK_pregunta_seccion" FromRole="pregunta" ToRole="seccion" />
+          <Property Name="respuesta" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="resultado">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="id_pregunta" Type="Int32" Nullable="false" />
-          <Property Name="respuesta" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="pregunta" Relationship="Self.FK_resultado_pregunta" FromRole="resultado" ToRole="pregunta" />
+          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
         </EntityType>
         <EntityType Name="roles">
           <Key>
@@ -293,6 +275,7 @@
           <Property Name="id_test" Type="Int32" Nullable="false" />
           <Property Name="nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="test" Relationship="Self.FK_seccion_test" FromRole="seccion" ToRole="test" />
+          <NavigationProperty Name="pregunta" Relationship="bdscecModel.FK_pregunta_seccion" FromRole="seccion" ToRole="pregunta" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -310,7 +293,6 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="pregunta" Relationship="Self.FK_pregunta_test" FromRole="test" ToRole="pregunta" />
           <NavigationProperty Name="seccion" Relationship="Self.FK_seccion_test" FromRole="test" ToRole="seccion" />
         </EntityType>
         <EntityType Name="usuario">
@@ -353,30 +335,6 @@
             </Principal>
             <Dependent Role="personas">
               <PropertyRef Name="idCiudad" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_pregunta_test">
-          <End Role="test" Type="Self.test" Multiplicity="1" />
-          <End Role="pregunta" Type="Self.pregunta" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="test">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="pregunta">
-              <PropertyRef Name="id_test" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_resultado_pregunta">
-          <End Role="pregunta" Type="Self.pregunta" Multiplicity="1" />
-          <End Role="resultado" Type="Self.resultado" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="pregunta">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="resultado">
-              <PropertyRef Name="id_pregunta" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -436,14 +394,6 @@
             <End Role="ciudad" EntitySet="ciudad" />
             <End Role="personas" EntitySet="personas" />
           </AssociationSet>
-          <AssociationSet Name="FK_pregunta_test" Association="Self.FK_pregunta_test">
-            <End Role="test" EntitySet="test" />
-            <End Role="pregunta" EntitySet="pregunta" />
-          </AssociationSet>
-          <AssociationSet Name="FK_resultado_pregunta" Association="Self.FK_resultado_pregunta">
-            <End Role="pregunta" EntitySet="pregunta" />
-            <End Role="resultado" EntitySet="resultado" />
-          </AssociationSet>
           <AssociationSet Name="FK_usuarioRol_roles" Association="Self.FK_usuarioRol_roles">
             <End Role="roles" EntitySet="roles" />
             <End Role="usuarioRol" EntitySet="usuarioRol" />
@@ -456,7 +406,23 @@
             <End Role="usuario" EntitySet="usuario" />
             <End Role="usuarioRol" EntitySet="usuarioRol" />
           </AssociationSet>
+          <AssociationSet Name="FK_pregunta_seccion" Association="bdscecModel.FK_pregunta_seccion">
+            <End Role="seccion" EntitySet="seccion" />
+            <End Role="pregunta" EntitySet="pregunta" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_pregunta_seccion">
+          <End Type="bdscecModel.seccion" Role="seccion" Multiplicity="1" />
+          <End Type="bdscecModel.pregunta" Role="pregunta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="seccion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="pregunta">
+              <PropertyRef Name="id_seccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -496,8 +462,9 @@
           <EntitySetMapping Name="pregunta">
             <EntityTypeMapping TypeName="bdscecModel.pregunta">
               <MappingFragment StoreEntitySet="pregunta">
+                <ScalarProperty Name="respuesta" ColumnName="respuesta" />
+                <ScalarProperty Name="id_seccion" ColumnName="id_seccion" />
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="id_test" ColumnName="id_test" />
                 <ScalarProperty Name="pregunta1" ColumnName="pregunta" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -505,10 +472,9 @@
           <EntitySetMapping Name="resultado">
             <EntityTypeMapping TypeName="bdscecModel.resultado">
               <MappingFragment StoreEntitySet="resultado">
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="id_pregunta" ColumnName="id_pregunta" />
-                <ScalarProperty Name="respuesta" ColumnName="respuesta" />
-              </MappingFragment>
+                </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="roles">

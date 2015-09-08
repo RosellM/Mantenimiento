@@ -1,0 +1,17 @@
+﻿@model Mantenimiento.Models.cuestionarioModel
+@{
+    ViewBag.Title = "IniciarTest";
+}
+
+<h2>IniciarTest</h2>
+
+@foreach(var m in Model.listaPreguntas)
+{
+
+        <p> @m.pregunta.pregunta1 </p>
+        foreach(var r in @m.resultados)
+    {
+          <label> @r.descripcion </label>  <input type="radio" id=@r.descripcion name="respuestas" + @m.pregunta.id value=@r.descripcion />
+    }
+}
+

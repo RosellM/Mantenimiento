@@ -40,12 +40,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ciudadesNeg.cs" />
+    <Compile Include="cuestionarioNeg.cs" />
     <Compile Include="estadoNeg.cs" />
     <Compile Include="personasNeg.cs" />
     <Compile Include="PreguntaNeg.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="resultadoNeg.cs" />
     <Compile Include="RolesNeg.cs" />
+    <Compile Include="SeccionNeg.cs" />
     <Compile Include="TestNeg.cs" />
   </ItemGroup>
   <ItemGroup>

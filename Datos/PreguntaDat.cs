@@ -22,9 +22,12 @@ namespace Datos
         {
             using (bdscecEntities bd = new bdscecEntities())
             {
-
+               
                 try
                 {
+                    resultado resultado = new resultado();
+                    resultado.descripcion = pregunta.respuesta;
+                    bd.resultado.Add(resultado);
                     bd.pregunta.Add(pregunta);
                     bd.SaveChanges();
                 }
@@ -55,8 +58,9 @@ namespace Datos
             if (getpregunta != null)
             {
                 getpregunta.id = pregunta.id;
-                getpregunta.id_test = pregunta.id_test;
+                getpregunta.id_seccion = pregunta.id_seccion;
                 getpregunta.pregunta1 = pregunta.pregunta1;
+                getpregunta.respuesta = pregunta.respuesta;
 
             }
 

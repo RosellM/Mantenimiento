@@ -1,0 +1,25 @@
+﻿@model Mantenimiento.Models.cuestionarioModel
+@{
+    ViewBag.Title = "Secciones";
+}
+
+<h2>Secciones</h2>
+
+<h2>Elije la seccion</h2>
+
+    <table class="table table-striped" style="max-width:960px; text-align:center; margin:2.53em auto;">
+        <tbody>
+            <tr class="warning">
+                <td> Nombre de la seccion </td>
+
+                <td colspan="2"> <center>Opciones</center> </td>
+            </tr>
+            @foreach (var m in Model.ListarSecciones())
+            {
+                <tr>
+                    <td> @m.nombre </td>
+                    <td> <center><button onclick="location.href='@Url.Action("IniciarTest", "cuestionario", new { id = m.id })';" class=" btn btn-info"><span class="glyphicon glyphicon-pencil">INICIAR</span></button> </center></td>
+                </tr>
+            }
+        </tbody>
+    </table>

@@ -13,9 +13,13 @@ namespace Mantenimiento.Models
 
         public int id { get; set; }
 
+        [Required(ErrorMessage = "Campo requerido")]
+        [Display(Name = "Escribe respuesta")]
+        public string respuesta { get; set; }
+
         [Required(ErrorMessage="Campo requerido")]
-        [Display(Name="Elija el test")]
-        public int id_test { get; set; }
+        [Display(Name="Elija el seccion")]
+        public int id_seccion { get; set; }
 
         [Required(ErrorMessage = "Campo requerido")]
         [Display(Name="Escriba la pregunta")]
@@ -33,10 +37,10 @@ namespace Mantenimiento.Models
             return new PreguntaNeg().listarPregunta();
         }
 
-        public IEnumerable<SelectListItem> listaTest()
+        public IEnumerable<SelectListItem> listaSeccion()
         {
             List<SelectListItem> listItems = new List<SelectListItem>();
-            foreach (var i in new TestNeg().listarTest())
+            foreach (var i in new SeccionNeg().listarseccion())
             {
                 listItems.Add(new SelectListItem
                 {
@@ -58,8 +62,9 @@ namespace Mantenimiento.Models
         {
             pregunta p = new pregunta();
             p.id = pregunta.id;
-            p.id_test = pregunta.id_test;
+            p.id_seccion = pregunta.id_seccion;
             p.pregunta1 = pregunta.pregunta1;
+            p.respuesta = pregunta.respuesta;
             new PreguntaNeg().modificarPregunta(p);
 
         }

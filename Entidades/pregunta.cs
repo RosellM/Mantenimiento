@@ -20,10 +20,11 @@ namespace Entidades
         }
     
         public int id { get; set; }
-        public int id_test { get; set; }
+        public int id_seccion { get; set; }
         public string pregunta1 { get; set; }
+        public string respuesta { get; set; }
     
-        public virtual test test { get; set; }
+        public virtual seccion seccion { get; set; }
         public virtual ICollection<resultado> resultado { get; set; }
     }
 }

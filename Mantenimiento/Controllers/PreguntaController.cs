@@ -28,8 +28,9 @@ namespace Mantenimiento.Controllers
         {
 
             pregunta p = new pregunta();
-            p.id_test = pregunta.id_test;
+            p.id_seccion = pregunta.id_seccion;
             p.pregunta1 = pregunta.pregunta1;
+            p.respuesta = pregunta.respuesta;
             new PreguntaModel().NuevaPregunta(p);
             return View("Index", new PreguntaModel());
 
@@ -40,7 +41,8 @@ namespace Mantenimiento.Controllers
             pregunta pregunta = new PreguntaModel().obtenerPreguntaPorId(id);
             PreguntaModel pm = new PreguntaModel();
             pm.pregunta1 = pregunta.pregunta1;
-            pm.id_test = pregunta.id_test;
+            pm.id_seccion = pregunta.id_seccion;
+            pm.respuesta = pregunta.respuesta;
             pm.id = pregunta.id;
             return View(pm);
         }

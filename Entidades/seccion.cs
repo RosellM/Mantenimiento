@@ -14,10 +14,17 @@ namespace Entidades
     
     public partial class seccion
     {
+        public seccion() 
+        {
+            this.pregunta = new HashSet<pregunta>();
+        }
+
         public int id { get; set; }
         public int id_test { get; set; }
         public string nombre { get; set; }
     
+        
         public virtual test test { get; set; }
+        public virtual ICollection<pregunta> pregunta { get; set; }
     }
 }

@@ -47,6 +47,7 @@
     <Compile Include="ciudad.cs">
       <DependentUpon>bdscec.tt</DependentUpon>
     </Compile>
+    <Compile Include="cuestionarioEntidad.cs" />
     <Compile Include="estados.cs">
       <DependentUpon>bdscec.tt</DependentUpon>
     </Compile>

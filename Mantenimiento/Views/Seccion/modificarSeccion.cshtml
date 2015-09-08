@@ -1,0 +1,18 @@
+﻿@model Mantenimiento.Models.SeccionModel
+@{
+    ViewBag.Title = "Modificar Seccion";
+}
+
+<h2>Modificar Seccion</h2>
+
+@using (@Html.BeginForm("modificarSeccion", "Seccion"))
+{
+    @Html.LabelFor(model => model.id_test)
+    @Html.DropDownListFor(model => model.id_test, Model.listarTest(), "-- Seleccione test --")
+
+    @Html.LabelFor(model => model.nombre)
+    @Html.TextBoxFor(model => model.nombre)
+
+    <input type="submit" value="Registrar" />
+}
+
