@@ -33,19 +33,12 @@ namespace Datos
             return cuestionariosEntidad;
         }
 
-        public List<resultado> resultados() 
+        public List<resultado>resultados() 
         {
             bdscecEntities bd = new bdscecEntities();
-            Random r = new Random();
-            List<resultado> auxiliarM = new List<resultado>();
-            List<resultado> resultados = bd.resultado.ToList();
-            for (int i = 0; i < 3; i++)
-            {
-                int auxiliar = r.Next(1, resultados.Count());
-                auxiliarM.Add(resultados[auxiliar]);
-            }
-
-            return auxiliarM;
+           List<resultado> resultados = (from res in bd.resultado select res).OrderBy(s=>Guid.NewGuid()).Take(3).ToList<resultado>();
+           
+            return resultados;
         }
 
     }

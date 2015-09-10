@@ -25,5 +25,10 @@ namespace Negocio
             return new cuestionarioDat().obtenerCuestionarios(id_seccion);
         }
 
+       public List<resultado> ListarResultados()
+        {
+          
+            return new cuestionarioDat().resultados();
+        }
     }
 }

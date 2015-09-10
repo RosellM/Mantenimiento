@@ -3,15 +3,27 @@
     ViewBag.Title = "IniciarTest";
 }
 
+
 <h2>IniciarTest</h2>
 
-@foreach(var m in Model.listaPreguntas)
-{
+@using (@Html.BeginForm("Nuevo", "Seccion")) { 
 
-        <p> @m.pregunta.pregunta1 </p>
-        foreach(var r in @m.resultados)
+foreach(var m in Model.listaPreguntas)
+{
+    Model.Auxiliarname = 0;
+    <p> @m.pregunta.pregunta1 </p>
+    foreach (var r in @m.resultados)
     {
-          <label> @r.descripcion </label>  <input type="radio" id=@r.descripcion name="respuestas" + @m.pregunta.id value=@r.descripcion />
+        if (Model.Auxiliarname == 0)
+        {
+            <label> @m.pregunta.respuesta </label>  <input type="radio" id=@m.pregunta.respuesta name="respuesta_@m.pregunta.id" value=@m.pregunta.respuesta required/>
+        }
+        
+            <label> @r.descripcion </label>  <input type="radio" id=@r.descripcion name="respuesta_@m.pregunta.id" value=@r.descripcion required/>
+        Model.Auxiliarname++; 
     }
 }
 
+    <input type="submit" value="Enviar" />
+
+}
