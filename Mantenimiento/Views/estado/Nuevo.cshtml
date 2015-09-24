@@ -1,7 +1,7 @@
 ﻿@model Mantenimiento.Models.estadoModel
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
 }
 
 <h2>Nuevo rol</h2>
@@ -9,10 +9,10 @@
 {
     @Html.LabelFor(model => model.nombre);
     @Html.ValidationMessageFor(model =>model.nombre)
-    @Html.TextBoxFor(model => model.nombre);
+    @Html.TextBoxFor(model => model.nombre, new { @class = "form-control" });
 
     @Html.LabelFor(model => model.descripcion)
-    @Html.ValidationMessageFor(model => model.descripcion)
-    @Html.TextBoxFor(model => model.descripcion)
-    <input type="submit" value="Registrar" />
+    @Html.ValidationMessageFor(model => model.descripcion )
+    @Html.TextBoxFor(model => model.descripcion, new { @class = "form-control" })
+    <input type="submit" value="Registrar" class="btn btn-success btn-block margin-bottom-lg" />
 }

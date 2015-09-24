@@ -4,7 +4,7 @@
 }
 
 <h2>Estados registrados</h2>
-<center><button onclick="location.href='@Url.Action("Nuevo", "estado")';" class="btn btn-success" style="margin-bottom:50px; text-align:center; margin:2.53em auto;" "><span class=" glyphicon glyphicon-plus">Registrar nuevo estado</span></button></center>
+<center><button onclick="agregarModal()" class="btn btn-success" style="margin-bottom:50px; text-align:center; margin:2.53em auto;" "><span class=" glyphicon glyphicon-plus">Registrar nuevo estado</span></button></center>
 
 <table class="table table-striped" style="max-width:960px; text-align:center; margin:2.53em auto;">
     <tbody>
@@ -20,9 +20,69 @@
                 <td> @m.id </td>
                 <td> @m.nombre </td>
                 <td> @m.descripcion </td>
-                <td> <center><button onclick="location.href='@Url.Action("modificarEstado", "estado", new { id = m.id })';" class=" btn btn-info"><span class="glyphicon glyphicon-pencil">Modificar</span></button> </center></td>
+                <td> <center><button onclick="modificarModal(@m.id)" class=" btn btn-info"><span class="glyphicon glyphicon-pencil">Modificar</span></button> </center></td>
                 <td><center><button onclick="location.href='@Url.Action("eliminarEstado", "estado", new { id = m.id })';" class="btn btn-danger"><span class="glyphicon glyphicon-remove">Eliminar</span></button> </center></td>
             </tr>
         }
     </tbody>
 </table>
+<script>
+
+    function modificarModal(ID) {
+        $.ajax({
+            type: 'GET',
+            traditional: true,
+            url: '@Url.Action("modificarEstado", "estado")',
+            data: { id: ID },
+            success: function (returnPayload) {
+                $(".modal-body").html(returnPayload);
+                $("#myModal").modal();
+                $("#myModal").modal({ show: true });
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console && console.log("request failed");
+                alert("error!##");
+            }
+        });
+
+    }
+
+    function agregarModal() {
+
+        $.ajax({
+            type: 'GET',
+            traditional: true,
+            url: '@Url.Action("Nuevo", "estado")',
+            success: function (returnPayload) {
+                $(".modal-body").html(returnPayload);
+                $("#myModal").modal();
+                $("#myModal").modal({ show: true });
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console && console.log("request failed");
+                alert("error!##");
+            }
+        });
+
+    }
+
+</script>
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close">&times;</button>
+                <h4 class="modal-title">Resultados</h4>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="location.reload();" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>  

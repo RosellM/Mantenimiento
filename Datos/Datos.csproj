@@ -69,6 +69,7 @@
     <Compile Include="RolesDat.cs" />
     <Compile Include="SeccionDat.cs" />
     <Compile Include="TestDat.cs" />
+    <Compile Include="UsuarioDat.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="bdscec.edmx">

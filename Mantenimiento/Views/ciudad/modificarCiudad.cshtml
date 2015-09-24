@@ -1,22 +1,24 @@
 ﻿@model Mantenimiento.Models.ciudadModel
 @{
+    Layout = null;
     ViewBag.Title = "modificar Ciudad";
 }
 
 <h2>modificar Ciudad</h2>
 @using (@Html.BeginForm("modificarCiudad", "ciudad"))
 {
-    @Html.LabelFor(model => model.nombre);
+    @Html.HiddenFor(model=>model.id)
+    @Html.LabelFor(model => model.nombre)
     @Html.ValidationMessageFor(model => model.nombre)
-    @Html.TextBoxFor(model => model.nombre);
+    @Html.TextBoxFor(model => model.nombre, new { @class = "form-control" });
 
     @Html.LabelFor(model => model.descripcion)
     @Html.ValidationMessageFor(model => model.descripcion)
-    @Html.TextBoxFor(model => model.descripcion)
+    @Html.TextBoxFor(model => model.descripcion, new { @class = "form-control" })
     
     @Html.LabelFor(model => model.nombreEstado)
-    @Html.TextBoxFor(model => model.state.nombre)
+    @Html.TextBoxFor(model => model.state.nombre, new { @class = "form-control" })
     
-    @Html.DropDownListFor(model=> model.idEstado, Model.estados())
-    <input type="submit" value="Registrar" />
+    @Html.DropDownListFor(model => model.idEstado, Model.estados(), new { @class = "form-control" })
+    <input type="submit" value="Registrar" class="btn btn-success btn-block margin-bottom-lg" />
 }

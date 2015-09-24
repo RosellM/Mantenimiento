@@ -12,10 +12,11 @@ namespace Entidades
     using System;
     using System.Collections.Generic;
     
-    public partial class roles
+     public partial class roles
     {
         public roles()
         {
+            this.usuario = new HashSet<usuario>();
             this.usuarioRol = new HashSet<usuarioRol>();
         }
     
@@ -23,6 +24,7 @@ namespace Entidades
         public string nombre { get; set; }
         public string descripcion { get; set; }
     
+        public virtual ICollection<usuario> usuario { get; set; }
         public virtual ICollection<usuarioRol> usuarioRol { get; set; }
     }
 }

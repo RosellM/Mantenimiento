@@ -20,8 +20,10 @@
         <AssociationConnector Association="bdscecModel.FK_personas_ciudad" ManuallyRouted="false" />
         <AssociationConnector Association="bdscecModel.FK_usuarioRol_roles" ManuallyRouted="false" />
         <AssociationConnector Association="bdscecModel.FK_seccion_test" ManuallyRouted="false" />
-        <AssociationConnector Association="bdscecModel.FK_usuarioRol_usuarios" ManuallyRouted="false" />
+        <AssociationConnector ManuallyRouted="false" Association="bdscecModel.FK_usuarioRol_usuarios" />
         <AssociationConnector Association="bdscecModel.FK_pregunta_seccion" />
+        <EntityTypeShape EntityType="bdscecModel.respuesta_cuestionario" Width="1.5" PointX="0.75" PointY="7.75" />
+        <AssociationConnector Association="bdscecModel.FK_usuario_roles" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -1,5 +1,6 @@
 ﻿@model Mantenimiento.Models.ciudadModel
 @{
+    Layout = null;
     ViewBag.Title = "nuevaCiudad";
 }
 
@@ -9,9 +10,9 @@
 @using (@Html.BeginForm("nuevaCiudad", "ciudad"))
 {
 
-    @Html.DropDownListFor(model => model.idEstado, Model.estados(), "-- Seleccione estado --")
-    @Html.TextBoxFor(model => model.nombre)
-    @Html.TextBoxFor(model => model.descripcion)
+    @Html.DropDownListFor(model => model.idEstado, Model.estados(), "-- Seleccione estado --",new { @class = "form-control" })
+    @Html.TextBoxFor(model => model.nombre, new { @class = "form-control" })
+    @Html.TextBoxFor(model => model.descripcion, new { @class = "form-control" })
 
-    <input type="submit" value="Registrar" />
+    <input type="submit" value="Registrar" class="btn btn-success btn-block margin-bottom-lg" />
 }

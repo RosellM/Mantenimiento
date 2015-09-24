@@ -12,7 +12,7 @@ namespace Entidades
     using System;
     using System.Collections.Generic;
     
-    public partial class usuarioRol
+       public partial class usuarioRol
     {
         public int id { get; set; }
         public Nullable<int> idRol { get; set; }

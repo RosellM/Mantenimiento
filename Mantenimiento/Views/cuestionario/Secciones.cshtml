@@ -1,8 +1,15 @@
 ﻿@model Mantenimiento.Models.cuestionarioModel
 @{
     ViewBag.Title = "Secciones";
+    if (ViewBag.user != null)
+    {
+        Model.flag = 1;
+        Layout = null;
+        @Html.Partial("_pUser")
+    }
 }
 
+<insert><insert>
 <h2>Secciones</h2>
 
 <h2>Elije la seccion</h2>
@@ -18,7 +25,7 @@
             {
                 <tr>
                     <td> @m.nombre </td>
-                    <td> <center><button onclick="location.href='@Url.Action("IniciarTest", "cuestionario", new { id = m.id })';" class=" btn btn-info"><span class="glyphicon glyphicon-pencil">INICIAR</span></button> </center></td>
+                    <td> <center><button onclick="location.href='@Url.Action("IniciarTest", "cuestionario", new { id = m.id,Model.flag })';" class=" btn btn-info"><span class="glyphicon glyphicon-pencil">INICIAR</span></button> </center></td>
                 </tr>
             }
         </tbody>

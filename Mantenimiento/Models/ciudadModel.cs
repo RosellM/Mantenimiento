@@ -11,6 +11,16 @@ namespace Mantenimiento.Models
 {
     public class ciudadModel
     {
+        public ciudadModel(int id,int idEstado,String nombre, String descripcion)
+        {
+            this.id = id;
+            this.idEstado = idEstado;
+            this.nombre = nombre;
+            this.descripcion = descripcion;
+        
+        }
+
+        public ciudadModel() { }
 
         public estados state { get; set; }
         public int id { get; set; }

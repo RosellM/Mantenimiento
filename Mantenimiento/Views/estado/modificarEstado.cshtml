@@ -1,17 +1,19 @@
 ﻿@model Mantenimiento.Models.estadoModel
 @{
     ViewBag.Title = "modificar Estado";
+    Layout = null;
 }
 
 <h2>modificarEstado</h2>
 @using (@Html.BeginForm("modificarEstado", "estado"))
 {
+    @Html.HiddenFor(model=>model.id)
     @Html.LabelFor(model => model.nombre)
     @Html.ValidationMessageFor(model => model.nombre)
-    @Html.TextBoxFor(model => model.nombre)
+    @Html.TextBoxFor(model => model.nombre, new { @class = "form-control" })
     @Html.LabelFor(model => model.descripcion)
-    @Html.TextBoxFor(model => model.descripcion)
+    @Html.TextBoxFor(model => model.descripcion, new { @class = "form-control" })
     @Html.ValidationMessageFor(model => model.descripcion)
-    <input type="submit" value="Modificar" />
+    <input type="submit" value="Modificar" class="btn btn-success btn-block margin-bottom-lg" />
 
 }

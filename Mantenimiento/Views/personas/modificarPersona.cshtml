@@ -1,6 +1,7 @@
 ﻿@model Mantenimiento.Models.personasModel
 @{
     ViewBag.Title = "modificar Persona";
+    Layout = null;
 }
 
 <h2>modificarPersona</h2>
@@ -11,15 +12,15 @@
 {
 
     @Html.LabelFor(model => model.Nombres)
-    @Html.TextBoxFor(model => model.Nombres)
+    @Html.TextBoxFor(model => model.Nombres,new { @class = "form-control" })
 
     @Html.LabelFor(model => model.Apellidos)
-    @Html.TextBoxFor(model => model.Apellidos)
+    @Html.TextBoxFor(model => model.Apellidos,new { @class = "form-control" })
 
     @Html.LabelFor(model => model.Direccion)
-    @Html.TextBoxFor(model => model.Direccion)
+    @Html.TextBoxFor(model => model.Direccion, new { @class = "form-control" })
 
-    @Html.DropDownListFor(model => model.idCiudad, Model.ciudades(), "-- Seleccione ciudad de origen --")
+    @Html.DropDownListFor(model => model.idCiudad, Model.ciudades(), "-- Seleccione ciudad de origen --", new { @class = "form-control" })
 
-    <input type="submit" value="Registrar" />
+    <input type="submit" value="Registrar" class="btn btn-success btn-block margin-bottom-lg" />
 }

@@ -12,7 +12,7 @@ namespace Entidades
     using System;
     using System.Collections.Generic;
     
-    public partial class usuario
+  public partial class usuario
     {
         public usuario()
         {
@@ -22,7 +22,10 @@ namespace Entidades
         public int id { get; set; }
         public string nombreApellidoPaterno { get; set; }
         public string nombreApellidoMaterno { get; set; }
+        public int idRol { get; set; }
+        public string nombre { get; set; }
     
+        public virtual roles roles { get; set; }
         public virtual ICollection<usuarioRol> usuarioRol { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace Datos
 
         public List<ciudad> listarCiudades()
         {
-            using (bdscecEntities bd = new bdscecEntities()) 
+            using (bdscecEntities bd = new bdscecEntities())
             {
                 return bd.ciudad.ToList();
             }
@@ -22,30 +22,30 @@ namespace Datos
 
         public void guardarCiudad(ciudad ciudad)
         {
-            using (bdscecEntities bd = new bdscecEntities()) 
+            using (bdscecEntities bd = new bdscecEntities())
             {
 
                 bd.ciudad.Add(ciudad);
                 bd.SaveChanges();
-            
+
             }
         }
 
         public estados obtenerNombreEstado(int idEstado)
         {
-            using(bdscecEntities bd = new bdscecEntities())
+            using (bdscecEntities bd = new bdscecEntities())
             {
                 estados estado = (from e in bd.estados where e.id == idEstado select e).First();
                 return estado;
-               
+
             }
 
-            
+
         }
 
-        public List<estados> estados() 
+        public List<estados> estados()
         {
-            using (bdscecEntities bd = new  bdscecEntities()) 
+            using (bdscecEntities bd = new bdscecEntities())
             {
                 return bd.estados.ToList();
             }
@@ -54,7 +54,7 @@ namespace Datos
 
         public ciudad obtenerCiudadPorId(int id)
         {
-            using (bdscecEntities bd = new bdscecEntities()) 
+            using (bdscecEntities bd = new bdscecEntities())
             {
                 return (from e in bd.ciudad where e.id == id select e).First();
             }
@@ -62,7 +62,7 @@ namespace Datos
 
         public void modificarCiudad(ciudad ciudad)
         {
-            using (bdscecEntities bd = new bdscecEntities()) 
+            using (bdscecEntities bd = new bdscecEntities())
             {
                 ciudad getCiudad;
                 using (var ctx = new bdscecEntities())
@@ -71,7 +71,7 @@ namespace Datos
                     {
                         getCiudad = ctx.ciudad.Where(s => s.id == ciudad.id).FirstOrDefault<ciudad>();
 
-                        if (getCiudad != null) 
+                        if (getCiudad != null)
                         {
                             getCiudad.nombre = ciudad.nombre;
                             getCiudad.descripcion = ciudad.descripcion;

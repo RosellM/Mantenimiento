@@ -41,6 +41,18 @@ namespace Datos
             return resultados;
         }
 
+        public pregunta obtenerRespuestasCuestionario(int idPregunta)
+        {
+                bdscecEntities bd = new bdscecEntities();
+                pregunta pregunta = (from p in bd.pregunta where p.id == idPregunta select p).FirstOrDefault() ;
+
+                return pregunta;
+        }
+
+
+        
+
+
     }
 }
 

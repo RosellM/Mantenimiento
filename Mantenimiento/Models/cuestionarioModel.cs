@@ -4,10 +4,18 @@ using System.Linq;
 using System.Web;
 using Entidades;
 using Negocio;
+using System.Collections;
 namespace Mantenimiento.Models
 {
     public class cuestionarioModel
     {
+        public int flag{ get;set;}
+        public Array respuestas;
+        /*Auxialiares para Json*/
+        public int id_pregunta { get; set; }
+        public string respuesta { get; set; }
+        /*Auxialiares para Json*/
+
         public int Auxiliarname = 0;
         public int id { get; set; }
         public string nombre { get; set; }
@@ -35,7 +43,13 @@ namespace Mantenimiento.Models
             
         }
 
+        public List<String> verResultados(string[] ids_pregunta, string[] respuesta) 
+        {
+
+            cuestionarioNeg negocio = new cuestionarioNeg();
+            return negocio.calificarCuestionario(ids_pregunta,respuesta);
         
+        }
 
 
 

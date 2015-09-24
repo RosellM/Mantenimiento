@@ -1,29 +1,45 @@
 ﻿<!DOCTYPE html>
-<html>
+<style>
+    a {
+        color: #fff !important;
+    }
+
+    body {
+        background-image: url(../../Content/img/fondoLogin.png);
+    }
+</style>
+
+<html lang="es">
 <head>
-    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
-    @System.Web.Optimization.Styles.Render("~/Content/css")
-    @System.Web.Optimization.Scripts.Render("~/bundles/modernizr")
-    <link rel="stylesheet" href="~/Content/css/bootstrap.css" type="text/css" media="all" />
+    <title>Adminitracion</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
- <nav style="max-width:1000px; text-align:center; margin:0.25em auto;margin-top:50px;">
-     <ul class="nav nav-pills nav-justified">
-         <li><a href="#">Inicio</a></li>
-         <li><a href="#">Roles</a></li>
-         <li><a href="#">Estados</a></li>
-         <li><a href="#">Ciudades</a></li>
-         <li><a href="#">Personas</a></li>
-         <li><a href="#">Test</a></li>
-     </ul>
- </nav>
-  
- 
-    @RenderBody()
+    <header style="background-color:#1e90c1; width:100%;height:140px !important;">
+        <img src="~/Content/img/upchi_rueda.png" /> nombre de usuario;
+    </header>
+    <nav style="background-color:#101010; width:100%;" class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="@Url.Action("Index","ciudad")">Ciudad</a></li>
+                    <li><a href="@Url.Action("Index","estado")">Estados</a></li>
+                    <li><a href="@Url.Action("Index","personas")">Personas</a></li>
+                    <li><a href=" @Url.Action("All", "rol")">Roles</a></li>
+                    <li><a href="@Url.Action("Index", "cuestionario", new {flag=0})">Administración de test</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    @System.Web.Optimization.Scripts.Render("~/bundles/jquery")
+
+    @RenderBody()
     @RenderSection("scripts", required: false)
 </body>
 </html>
+

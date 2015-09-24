@@ -48,6 +48,7 @@
     <Compile Include="RolesNeg.cs" />
     <Compile Include="SeccionNeg.cs" />
     <Compile Include="TestNeg.cs" />
+    <Compile Include="UsuarioNeg.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Datos\Datos.csproj">

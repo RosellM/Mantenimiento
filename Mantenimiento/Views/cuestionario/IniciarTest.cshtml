@@ -1,29 +1,109 @@
 ﻿@model Mantenimiento.Models.cuestionarioModel
 @{
     ViewBag.Title = "IniciarTest";
+    if (ViewBag.user != null)
+    {
+        Layout = null;
+        @Html.Partial("_pUser")
+    }
+
 }
 
 
 <h2>IniciarTest</h2>
 
-@using (@Html.BeginForm("Nuevo", "Seccion")) { 
+<!-- Modal HTML -->
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
 
-foreach(var m in Model.listaPreguntas)
-{
-    Model.Auxiliarname = 0;
-    <p> @m.pregunta.pregunta1 </p>
-    foreach (var r in @m.resultados)
-    {
-        if (Model.Auxiliarname == 0)
-        {
-            <label> @m.pregunta.respuesta </label>  <input type="radio" id=@m.pregunta.respuesta name="respuesta_@m.pregunta.id" value=@m.pregunta.respuesta required/>
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close">&times;</button>
+                <h4 class="modal-title">Resultados</h4>
+            </div>
+            <div class="modal-body">
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="location.reload();" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    var x = 0;
+    var array_names = new Array();
+    var array_values = new Array();
+    var array_id = new Array();
+    var myarray_ = [];
+    var myJSON = "";
+    $(document).ready(function () {
+        $("#send").on('click',function () {
+            console.log(array_values);
+            for (var i = 0; i < array_names.length; i++) {                
+                array_values.push($('input:radio[name='+array_names[i]+']:checked').val());
         }
-        
-            <label> @r.descripcion </label>  <input type="radio" id=@r.descripcion name="respuesta_@m.pregunta.id" value=@r.descripcion required/>
-        Model.Auxiliarname++; 
-    }
-}
+    $.ajax({
+        type: 'POST',
+        traditional: true,
+        url:'@Url.Action("enviarRespuestas", "cuestionario")',
+        data: { array_id: array_id, array_value:array_values},
+        success: function (returnPayload) {
+            $(".modal-body").html(returnPayload);
+            $("#myModal").modal();
+            $("#myModal").modal({show:true});
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console && console.log ("request failed");
+            alert("error!##");
+        }
+    });
+    });
+    });
+</script>
+<form id="form" method="post">
+    <table class="table table-striped" style="max-width:960px; text-align:center; margin:2.53em auto;">
+        <tbody>
 
-    <input type="submit" value="Enviar" />
+            @foreach (var m in Model.listaPreguntas)
+            {
 
-}
+                Model.Auxiliarname = 0;
+                <tr>
+                    <td><p> @m.pregunta.pregunta1 </p></td>
+                    @foreach (var r in @m.resultados)
+                    {
+
+                        if (Model.Auxiliarname == 0)
+                        {
+                            <td>
+                                <label> @m.pregunta.respuesta </label>
+                                <input type="radio" id="@m.pregunta.respuesta" name="respuesta_@m.pregunta.id" value="@m.pregunta.respuesta" required />
+                            </td>
+                        }
+
+                        <td>
+                            <label> @r.descripcion </label>
+                            <input type="radio" id="@r.descripcion" name="respuesta_@m.pregunta.id" value="@r.descripcion" required />
+                        </td>
+
+                        Model.Auxiliarname++;
+
+                    }
+                </tr>
+                <script>
+                    array_names[x] = "respuesta_@m.pregunta.id";
+                    array_id[x]  = @m.pregunta.id;
+                    x++;
+                </script>
+
+            }
+        </tbody>
+    </table>
+
+   <center><input type="button" id="send" value="Enviar" class="btn btn-info" /></center>
+
+</form>
