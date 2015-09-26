@@ -1,6 +1,7 @@
 ﻿@model Mantenimiento.Models.TestModel
 @{
     ViewBag.Title = "Nuevo Test";
+    Layout = null;
 }
 
 <h2>Nuevo Test</h2>
@@ -9,7 +10,7 @@
 {
 
     @Html.LabelFor(model => model.nombre)
-    @Html.TextBoxFor(model => model.nombre)
+    @Html.TextBoxFor(model => model.nombre, new { @class = "form-control", required = "required" })
 
     <input type="submit" value="Registrar" />
 }

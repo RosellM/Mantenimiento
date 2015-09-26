@@ -14,6 +14,16 @@ namespace Datos
             return new bdscecEntities().seccion.ToList();
         }
 
+
+        public List<seccion> ListarSecciones(int idTst)
+        {
+            using (bdscecEntities bd = new bdscecEntities())
+            {
+                return (from e in bd.seccion where e.id_test == idTst select e).ToList();
+
+            }
+        }
+
         public List<test> ListarTest() 
         {
             return new bdscecEntities().test.ToList();

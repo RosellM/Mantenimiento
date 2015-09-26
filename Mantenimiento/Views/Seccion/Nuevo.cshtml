@@ -1,6 +1,7 @@
 ﻿@model Mantenimiento.Models.SeccionModel
 @{
     ViewBag.Title = "Nuevo";
+    Layout = null;
 }
 
 <h2>Nuevo</h2>
@@ -8,10 +9,10 @@
 @using (@Html.BeginForm("Nuevo", "Seccion"))
 {
     @Html.LabelFor(model => model.id_test)
-    @Html.DropDownListFor(model => model.id_test, Model.listarTest(), "-- Seleccione test --")
+    @Html.DropDownListFor(model => model.id_test, Model.listarTest(), "-- Seleccione test --", new { @class = "form-control", required = "required" })
 
     @Html.LabelFor(model => model.nombre)
-    @Html.TextBoxFor(model => model.nombre)
+    @Html.TextBoxFor(model => model.nombre, new { @class = "form-control", required = "required" })
 
-    <input type="submit" value="Registrar" />
+    <input type="submit" value="Registrar" class="btn btn-success btn-block margin-bottom-lg" />
 }

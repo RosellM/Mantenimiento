@@ -10,9 +10,9 @@
     @Html.HiddenFor(model=>model.id)
     @Html.LabelFor(model => model.nombre)
     @Html.ValidationMessageFor(model => model.nombre)
-    @Html.TextBoxFor(model => model.nombre, new { @class = "form-control" })
+    @Html.TextBoxFor(model => model.nombre, new { @class = "form-control" ,required="required" })
     @Html.LabelFor(model => model.descripcion)
-    @Html.TextBoxFor(model => model.descripcion, new { @class = "form-control" })
+    @Html.TextBoxFor(model => model.descripcion, new { @class = "form-control" ,required="required" })
     @Html.ValidationMessageFor(model => model.descripcion)
     <input type="submit" value="Modificar" class="btn btn-success btn-block margin-bottom-lg" />
 

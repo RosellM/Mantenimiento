@@ -24,13 +24,17 @@ namespace Mantenimiento.Controllers
         }
 
       
-        public ActionResult Secciones(int? flag) 
+        public ActionResult Secciones(int id,int? flag) 
         {
             if (flag != 0)
                 ViewBag.user = "user";
             else
                 ViewBag.user = null;
-            return View(new cuestionarioModel());
+
+            cuestionarioModel model = new cuestionarioModel();
+            model.id_Tst = id;
+            model.ListarSecciones(id);
+            return View(model);
         }
   
         public ActionResult IniciarTest(int id, int? flag)

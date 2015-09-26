@@ -15,6 +15,12 @@ namespace Negocio
             return new cuestionarioDat().ListarSecciones();
         }
 
+
+        public List<seccion> ListarSecciones(int id_Tst)
+        {
+            return new cuestionarioDat().ListarSecciones(id_Tst);
+        }
+
         public List<test> ListarTest()
         {
             return new cuestionarioDat().ListarTest();

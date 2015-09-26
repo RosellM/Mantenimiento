@@ -15,6 +15,12 @@ namespace Negocio
            return new SeccionDat().listarseccion();
        }
 
+       public List<seccion> listarseccion(int idTest)
+       {
+           return new SeccionDat().listarSeccionPorIdTest(idTest);
+       
+       }
+
        public void nuevoseccion(seccion seccion)
        {
            new SeccionDat().nuevoseccion(seccion);

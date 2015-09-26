@@ -18,6 +18,16 @@ namespace Datos
 
         }
 
+        public List<seccion> listarSeccionPorIdTest(int id_test)
+        {
+
+            using (bdscecEntities bd = new bdscecEntities())
+            {
+                return (from e in bd.seccion where e.id_test == id_test select e).ToList();
+                
+            }
+        }
+
         public void nuevoseccion(seccion seccion)
         {
             using (bdscecEntities bd = new bdscecEntities())
@@ -69,7 +79,7 @@ namespace Datos
                 dbCtx.SaveChanges();
             }
         }
-
+       //agregar id test
         public seccion obtenerseccionPorId(int id)
         {
             using (bdscecEntities bd = new bdscecEntities())

@@ -32,7 +32,7 @@ namespace Mantenimiento.Controllers
             p.pregunta1 = pregunta.pregunta1;
             p.respuesta = pregunta.respuesta;
             new PreguntaModel().NuevaPregunta(p);
-            return View("Index", new PreguntaModel());
+            return RedirectToAction("Index","Pregunta" ,new PreguntaModel());
 
         }
 
@@ -51,7 +51,7 @@ namespace Mantenimiento.Controllers
         public ActionResult modificarPregunta(PreguntaModel pregunta) 
         {
             new PreguntaModel().modificarPregunta(pregunta);
-            return View("Index",new PreguntaModel());
+            return RedirectToAction("Index","Pregunta",new PreguntaModel());
         }
 
         public ActionResult eliminarPregunta(int id) 

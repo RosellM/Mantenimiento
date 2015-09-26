@@ -28,6 +28,12 @@ namespace Mantenimiento.Models
         }
 
 
+        public List<seccion> listarSeccion(int id_test)
+        {
+            return new SeccionNeg().listarseccion(id_test);
+        }
+
+
         public List<seccion> listarSeccion()
         {
             return new SeccionNeg().listarseccion();
@@ -48,7 +54,7 @@ namespace Mantenimiento.Models
             return listItems;
 
         }
-
+        
         public seccion obtenerSeccionPorId(int id)
         {
             return new SeccionNeg().obtenerseccionPorID(id);

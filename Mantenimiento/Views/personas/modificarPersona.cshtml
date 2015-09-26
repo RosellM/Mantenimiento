@@ -12,13 +12,13 @@
 {
 
     @Html.LabelFor(model => model.Nombres)
-    @Html.TextBoxFor(model => model.Nombres,new { @class = "form-control" })
+    @Html.TextBoxFor(model => model.Nombres, new { @class = "form-control", required = "required" })
 
     @Html.LabelFor(model => model.Apellidos)
-    @Html.TextBoxFor(model => model.Apellidos,new { @class = "form-control" })
+    @Html.TextBoxFor(model => model.Apellidos, new { @class = "form-control", required = "required" })
 
     @Html.LabelFor(model => model.Direccion)
-    @Html.TextBoxFor(model => model.Direccion, new { @class = "form-control" })
+    @Html.TextBoxFor(model => model.Direccion, new { @class = "form-control", required = "required" })
 
     @Html.DropDownListFor(model => model.idCiudad, Model.ciudades(), "-- Seleccione ciudad de origen --", new { @class = "form-control" })
 
