@@ -38,6 +38,13 @@ namespace Negocio
            
        }
 
+       public void modificarUsuario(usuario usuario) 
+       {
+       
+           new UsuarioDat().modificarUsuario(usuario);
+       
+       }
+
 
 
     }

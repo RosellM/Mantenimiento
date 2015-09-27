@@ -1095,6 +1095,7 @@
     <Content Include="Views\principal\user.cshtml" />
     <Content Include="Views\Shared\_pUser.cshtml" />
     <Content Include="Views\AdministracionCuestionario\Index.cshtml" />
+    <Content Include="Views\principal\modificar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Entidades;
+using System.Data.Entity.Validation;
+using System.Data.Entity;
 namespace Datos
 {
    public class UsuarioDat
@@ -60,7 +62,39 @@ namespace Datos
 
        }
 
+       public void modificarUsuario(usuario usuario)
+       {
 
+           using (bdscecEntities bd = new bdscecEntities())
+           {
+               usuario getUsuario;
+               using (var ctx = new bdscecEntities())
+               {
+                   try
+                   {
+                       getUsuario = ctx.usuario.Where(s => s.id == usuario.id).FirstOrDefault<usuario>();
+
+                       if (getUsuario != null)
+                       {
+                           getUsuario.nombre = usuario.nombre;
+                           getUsuario.nombreApellidoMaterno =usuario.nombreApellidoMaterno;
+                           getUsuario.nombreApellidoPaterno = usuario.nombreApellidoPaterno;
+                          
+                       }
+
+                       ctx.Entry(getUsuario).State = EntityState.Modified;
+
+                       ctx.SaveChanges();
+                   }
+                   catch (DbEntityValidationException e)
+                   {
+                       throw e;
+                   }
+
+               }
+           }
+       
+       }
 
     }
 }

@@ -16,7 +16,7 @@ namespace Mantenimiento.Controllers
        
         public ActionResult Index( int? flag)
         {
-            if (flag != 0)
+            if (Session["user"] as string == "user")
                 ViewBag.user = "user";
             else
                 ViewBag.user = null;
@@ -26,7 +26,7 @@ namespace Mantenimiento.Controllers
       
         public ActionResult Secciones(int id,int? flag) 
         {
-            if (flag != 0)
+            if (Session["user"] as string == "user")
                 ViewBag.user = "user";
             else
                 ViewBag.user = null;
@@ -39,7 +39,7 @@ namespace Mantenimiento.Controllers
   
         public ActionResult IniciarTest(int id, int? flag)
         {
-            if (flag != 0)
+            if (Session["user"] as string == "user")
                 ViewBag.user = "user";
             else
                 ViewBag.user = null;

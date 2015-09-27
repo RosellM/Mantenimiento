@@ -13,11 +13,16 @@ namespace Mantenimiento.Controllers
 
         public ActionResult Index()
         {
+            Session.Remove("user");
+            Session.Remove("username");
             return View();
         }
+
+        [HttpPost]
         public ActionResult Login(string username) 
         {
-
+            Session.Remove("user");
+            Session.Remove("username");
             UsuarioModel model = new UsuarioModel();
 
             if (model.obtenerUsuario(username))
@@ -25,12 +30,16 @@ namespace Mantenimiento.Controllers
 
                 if (model.rol.nombre == "admin")
                 {
-                    System.Web.HttpContext.Current.Session["usuario"] = model.rol.nombre; 
+                    Session["user"] = model.rol.nombre;
+                    Session["username"] = username;
                     return RedirectToAction("Index","principal");
                 }
                 else 
                 {
-                    return RedirectToAction("user", "principal", new {user= username });
+                    Session["username"] = username;
+                    Session["user"] = model.rol.nombre;
+                    string nombre = Session["username"] as string;
+                    return RedirectToAction("user", "principal", new {name= nombre });
                     
                 }
 

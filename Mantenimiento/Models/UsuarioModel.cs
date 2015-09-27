@@ -4,13 +4,20 @@ using System.Linq;
 using System.Web;
 using Entidades;
 using Negocio;
+using System.ComponentModel.DataAnnotations;
 namespace Mantenimiento.Models
 {
     public class UsuarioModel
     {
         public int id { get; set; }
+
+        [Display(Name = "Apellido paterno")]
         public string nombreApellidoPaterno { get; set; }
+
+        [Display(Name = "Apellido materno")]
         public string nombreApellidoMaterno { get; set; }
+
+         [Display(Name = "Nombre")]
         public string nombre { get; set; }
         public int idRol { get; set; }
      
@@ -52,6 +59,7 @@ namespace Mantenimiento.Models
             {
                 this.rol = new UsuarioNeg().obtenerRol(user.idRol);
                 this.nombre = user.nombre;
+                this.id = user.id;
                 this.nombreApellidoMaterno = user.nombreApellidoMaterno;
                 this.nombreApellidoPaterno = user.nombreApellidoPaterno;
 
@@ -65,6 +73,10 @@ namespace Mantenimiento.Models
         
         }
 
+        public void modificarUsuario(usuario usuario)
+        {
+            new UsuarioNeg().modificarUsuario(usuario);
+        }
         
     }
 }

@@ -21,12 +21,13 @@
 </head>
 <body>
     <header style="background-color:#1e90c1; width:100%;height:140px !important;">
-        <img src="~/Content/img/upchi_rueda.png" /> nombre de usuario;
+        <img src="~/Content/img/upchi_rueda.png" />
     </header>
     <nav style="background-color:#101010; width:100%;" class="navbar navbar-inverse navbar-static-top">
         <div class="container">
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
+                    <li><a onclick="modificarModal('@Session["username"]')">Editar Perfil</a></li>
                     <li><a href="@Url.Action("Index","ciudad")">Ciudad</a></li>
                     <li><a href="@Url.Action("Index","estado")">Estados</a></li>
                     <li><a href="@Url.Action("Index","personas")">Personas</a></li>
@@ -42,4 +43,47 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+<script>
 
+
+    function modificarModal(nombre) {
+        $.ajax({
+            type: 'GET',
+            traditional: true,
+            url: '@Url.Action("modificarUsuario", "principal")',
+            data: { name: nombre },
+            success: function (returnPayload) {
+                $(".modal-body").html(returnPayload);
+                $("#myModal").modal();
+                $("#myModal").modal({ show: true });
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console && console.log("request failed");
+                alert("error!##");
+            }
+        });
+
+    }
+
+
+</script>
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close">&times;</button>
+                <h4 class="modal-title">Resultados</h4>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="location.reload();" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
