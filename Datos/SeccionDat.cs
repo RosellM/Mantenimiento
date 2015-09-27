@@ -79,6 +79,29 @@ namespace Datos
                 dbCtx.SaveChanges();
             }
         }
+
+
+        public void eliminarRelacionSeccionPregunta(int id_seccion) 
+        { 
+        
+            using(bdscecEntities bd = new bdscecEntities())
+            {
+
+                List<pregunta> preguntas = (from p in bd.pregunta where p.id_seccion == id_seccion select p).ToList();
+                foreach(var pregunta in preguntas)
+                {
+
+                    bd.pregunta.Remove(pregunta);
+                    bd.SaveChanges();
+
+                }
+            
+            }
+
+        
+        }
+
+
        //agregar id test
         public seccion obtenerseccionPorId(int id)
         {
@@ -96,6 +119,7 @@ namespace Datos
                 try
                 {
                     var seccionAEliminar = (from e in bd.seccion where e.id == id select e).First();
+                    this.eliminarRelacionSeccionPregunta(seccionAEliminar.id);
                     bd.seccion.Remove(seccionAEliminar);
                     bd.SaveChanges();
                 }

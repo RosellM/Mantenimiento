@@ -99,6 +99,7 @@ namespace Datos
                 try
                 {
                     var ciudadAEliminar = (from e in bd.ciudad where e.id == id select e).First();
+                    this.eliminarRelacionCiudadPersona(ciudadAEliminar.id);
                     bd.ciudad.Remove(ciudadAEliminar);
                     bd.SaveChanges();
                     return 1;
@@ -112,5 +113,30 @@ namespace Datos
 
         }
 
+        public bool eliminarRelacionCiudadPersona(int idCiudad)
+        {
+
+            using (bdscecEntities bd = new bdscecEntities())
+            {
+                try
+                {
+                    List<personas> personaAEliminar = (from e in bd.personas where e.idCiudad == idCiudad select e).ToList();
+                    
+                    foreach (var persona in personaAEliminar)
+                    {
+                     bd.personas.Remove(persona);
+                    bd.SaveChanges();
+                    }
+
+                   
+                    return true;
+                }
+                catch (DbEntityValidationException e)
+                {
+                    return false;
+                }
+            }
+        
+        }
     }
 }

@@ -69,6 +69,49 @@ namespace Datos
           }
       }
 
+
+      public void eliminarRelacionTestSeccion(int id_test)
+      {
+      
+        using(bdscecEntities bd = new bdscecEntities())
+        {
+            List<seccion> secciones = (from s in bd.seccion where s.id_test == id_test select s).ToList();
+            if (secciones != null) 
+            {
+                foreach (var seccion in secciones) 
+                {
+                    this.eliminarRelacionSeccionPregunta(seccion.id);
+                    bd.seccion.Remove(seccion);
+                    bd.SaveChanges();
+                }
+               
+            
+            }
+        }
+     
+      
+
+      }
+
+      public void eliminarRelacionSeccionPregunta(int id_seccion)
+      {
+          using (bdscecEntities bd = new bdscecEntities())
+          {
+              List<pregunta> preguntas = (from s in bd.pregunta where s.id_seccion == id_seccion select s).ToList();
+
+              if (preguntas != null) 
+              {
+                  foreach (var pregunta in preguntas)
+                  {
+                      bd.pregunta.Remove(pregunta);
+                      bd.SaveChanges();
+                  }
+              }
+             
+          }
+          
+      }
+
       public test obtenerTestPorId(int id)
       {
           using (bdscecEntities bd = new bdscecEntities())
@@ -85,6 +128,7 @@ namespace Datos
               try
               {
                   var testAEliminar = (from e in bd.test where e.id == id select e).First();
+                  this.eliminarRelacionTestSeccion(testAEliminar.id);
                   bd.test.Remove(testAEliminar);
                   bd.SaveChanges();
               }

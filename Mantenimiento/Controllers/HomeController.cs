@@ -25,6 +25,7 @@ namespace Mantenimiento.Controllers
 
                 if (model.rol.nombre == "admin")
                 {
+                    System.Web.HttpContext.Current.Session["usuario"] = model.rol.nombre; 
                     return RedirectToAction("Index","principal");
                 }
                 else 

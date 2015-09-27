@@ -52,18 +52,68 @@ namespace Datos
                   
 
                       var estadoAEliminar = (from e in bd.estados where e.id == id select e).First();
-                      bd.estados.Remove(estadoAEliminar);
-                      bd.SaveChanges();
-                      return 1;
-                  
-                   
+                      if (estadoAEliminar != null) 
+                      {
+                          this.eliminarRelacionEstadoCiudad(estadoAEliminar.id);
+                          bd.estados.Remove(estadoAEliminar);
+                          bd.SaveChanges();
+                          return 1;    
+                      }
+                      return 0;
+                    
                }catch(DbEntityValidationException e)
                {
                    return 0;
                }
-           }
+           }   
+       }
 
-          
+       public void eliminarRelacionEstadoCiudad(int idEstado) 
+       {
+
+           using (bdscecEntities bd = new bdscecEntities())
+           {
+               try
+               {
+                   List<ciudad> ciudadAEliminar = (from e in bd.ciudad where e.idEstado == idEstado select e).ToList();
+
+                   if (ciudadAEliminar != null) 
+                   {
+                       foreach (var ciudad in ciudadAEliminar)
+                       {
+
+                           this.obtenerPersonasporIdCiudad(ciudad.id);
+                           bd.ciudad.Remove(ciudad);
+                           bd.SaveChanges();
+                       }
+                   
+                   }
+
+                   
+            }
+               catch (DbEntityValidationException e)
+               {
+                   throw e; ;
+               }
+           }
+       }
+
+       public void obtenerPersonasporIdCiudad(int idciudad )
+       {
+
+           using (bdscecEntities bd = new bdscecEntities()) 
+           {
+               List<personas> personaList = (from e in bd.personas where e.idCiudad == idciudad select e).ToList();
+               if (personaList != null) 
+               {
+                   foreach (var persona in personaList)
+                   {
+                       bd.personas.Remove(persona);
+                       bd.SaveChanges();
+                   }
+               }
+              
+           }
        }
 
        public estados obtenerEstadoPorId(int id)
@@ -73,6 +123,7 @@ namespace Datos
               estados estadoAModificar = (from e in bd.estados where e.id == id select e).First();
               return estadoAModificar;
           }
+
        }
 
 

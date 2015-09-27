@@ -21,20 +21,19 @@
                 <td> @m.descripcion </td>
                 <td> @Model.obtenerNombreEstado(m.idEstado).nombre </td>
                 <td> <center><button onclick="modificarModal('@m.id')" class=" btn btn-info"><span class="glyphicon glyphicon-pencil">Modificar</span></button> </center></td>
-                <td><center><button onclick="location.href='@Url.Action("eliminarCiudad", "ciudad", new { id = m.id })';" class="btn btn-danger"><span class="glyphicon glyphicon-remove">Eliminar</span></button> </center></td>
+                <td><center><button onclick="alertaEliminacion(@m.id)" class="btn btn-danger"><span class="glyphicon glyphicon-remove">Eliminar</span></button> </center></td>
             </tr>
         }
     </tbody>
 </table>
 <script>
 
-    function modificarModal(ID)
-    {
+    function modificarModal(ID) {
         $.ajax({
             type: 'GET',
             traditional: true,
             url: '@Url.Action("modificarCiudad", "ciudad")',
-            data: { id:ID },
+            data: { id: ID },
             success: function (returnPayload) {
                 $(".modal-body").html(returnPayload);
                 $("#myModal").modal();
@@ -48,8 +47,7 @@
 
     }
 
-    function agregarModal()
-    {
+    function agregarModal() {
 
         $.ajax({
             type: 'GET',
@@ -59,6 +57,30 @@
                 $(".modal-body").html(returnPayload);
                 $("#myModal").modal();
                 $("#myModal").modal({ show: true });
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console && console.log("request failed");
+                alert("error!##");
+            }
+        });
+
+    }
+
+    function alertaEliminacion(ID) {
+        idtodetele = ID;
+        $("#myModal2").modal();
+        $("#myModal2").modal({ show: true });
+    }
+
+    function eliminar() {
+
+        $.ajax({
+            type: 'GET',
+            traditional: true,
+            url: '@Url.Action("eliminarCiudad", "ciudad")',
+            data: { id: idtodetele },
+            success: function () {
+                location.reload();
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 console && console.log("request failed");
@@ -85,6 +107,28 @@
             </div>
             <div class="modal-footer">
                 <button type="button" onclick="location.reload();" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>  
+<div id="myModal2" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content panel-warning">
+            <div class="modal-header">
+                <button type="button" class="close">&times;</button>
+                <h4 class="modal-title">Resultados</h4>
+            </div>
+            <div class="modal-body">
+                Si eliminas una ciudad, la informacion relacionada con este,<br />
+               como personas relacionadas a las ciudades se eliminaran,<br />
+                ¿Estas seguro de eliminar esta ciudad?
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="location.reload();" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="button" onclick="eliminar()" class="btn btn-default" data-dismiss="modal">Aceptar</button>
             </div>
         </div>
 
