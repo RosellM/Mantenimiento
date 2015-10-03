@@ -4,7 +4,6 @@
     Layout = null;
 }
 
-<h2>Modificar Pregunta</h2>
 
 @using (@Html.BeginForm("modificarPregunta", "Pregunta"))
 {
@@ -16,6 +15,6 @@
     @Html.LabelFor(model => model.respuesta)
     @Html.TextBoxFor(model => model.respuesta, new { @class = "form-control", required = "required" })
 
-    <input type="submit" value="Registrar" class="btn btn-success btn-block margin-bottom-lg" />
+    <input type="submit" value="@Mantenimiento.idiomas.idiomas.boton_modificar" class="btn btn-success btn-block margin-bottom-lg" />
 }
 

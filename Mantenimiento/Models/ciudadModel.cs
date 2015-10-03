@@ -87,5 +87,10 @@ namespace Mantenimiento.Models
         {
             new ciudadesNeg().eliminarCiudads(id);
         }
+
+        public string obtenerNombreEstadoPorIdciudad(int id)
+        {
+            return new ciudadesNeg().obtenerEstadoPorIdCiudad(id);
+        }
     }
 }

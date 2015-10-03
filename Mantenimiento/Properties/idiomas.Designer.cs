@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Mantenimiento.Models {
+namespace Mantenimiento.idiomas {
     using System;
     
     
@@ -57,6 +57,15 @@ namespace Mantenimiento.Models {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Escribe los campos correspondientes.
+        /// </summary>
+        public static string aux_modal {
+            get {
+                return ResourceManager.GetString("aux_modal", resourceCulture);
             }
         }
         
@@ -120,6 +129,24 @@ namespace Mantenimiento.Models {
         public static string boton_regresar {
             get {
                 return ResourceManager.GetString("boton_regresar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Catálogo de Personas.
+        /// </summary>
+        public static string catalogo_personas {
+            get {
+                return ResourceManager.GetString("catalogo_personas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Catálogos de Preguntas.
+        /// </summary>
+        public static string catalogo_preguntas {
+            get {
+                return ResourceManager.GetString("catalogo_preguntas", resourceCulture);
             }
         }
         

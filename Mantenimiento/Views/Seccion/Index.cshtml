@@ -5,7 +5,7 @@
 
 <h2>Secciones Registradas</h2>
 
-<center><button onclick="agregarModal()" class="btn btn-success" style="margin-bottom:50px; text-align:center; margin:2.53em auto;" "><span class=" glyphicon glyphicon-plus">Registrar nueva seccion</span></button></center>
+<center><button onclick="agregarModal()" class="btn btn-success" style="margin-bottom:50px; text-align:center; margin:2.53em auto;" "><span class=" glyphicon glyphicon-plus">@Mantenimiento.idiomas.idiomas.boton_nuevo</span></button></center>
 <center><button onclick="location.href='@Url.Action("Index", "AdministracionCuestionario")';" class="btn btn-warning" style="margin-bottom:50px; text-align:center; margin:2.53em auto;" "><span class=" glyphicon glyphicon-arrow-left">Regresar</span></button></center>
 
 <table class="table table-striped" style="max-width:960px; text-align:center; margin:2.53em auto;">
@@ -20,8 +20,8 @@
             <tr>
                 <td> @m.nombre </td>
                 <td> @m.test.nombre </td>
-                <td> <center><button onclick="modificarModal(@m.id)" class=" btn btn-info"><span class="glyphicon glyphicon-pencil">Modificar</span></button> </center></td>
-                <td><center><button onclick="location.href='@Url.Action("eliminarSeccion", "Seccion", new { id = m.id })';" class="btn btn-danger"><span class="glyphicon glyphicon-remove">Eliminar</span></button> </center></td>
+                <td> <center><button onclick="modificarModal(@m.id)" class=" btn btn-info"><span class="glyphicon glyphicon-pencil">@Mantenimiento.idiomas.idiomas.boton_opcion_modificar</span></button> </center></td>
+                <td><center><button onclick="location.href='@Url.Action("eliminarSeccion", "Seccion", new { id = m.id })';" class="btn btn-danger"><span class="glyphicon glyphicon-remove">@Mantenimiento.idiomas.idiomas.boton_eliminar</span></button> </center></td>
             </tr>
         }
     </tbody>
@@ -74,7 +74,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close">&times;</button>
-                <h4 class="modal-title">Resultados</h4>
+                <h4 class="modal-title">@Mantenimiento.idiomas.idiomas.aux_modal</h4>
             </div>
             <div class="modal-body">
 

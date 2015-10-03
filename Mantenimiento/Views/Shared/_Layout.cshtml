@@ -27,7 +27,7 @@
         <div class="container">
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a onclick="modificarModal('@Session["username"]')">Editar Perfil</a></li>
+                    <li><a onclick="modificarModal3('@Session["username"]')">Editar Perfil</a></li>
                     <li><a href="@Url.Action("Index","ciudad")">Ciudad</a></li>
                     <li><a href="@Url.Action("Index","estado")">Estados</a></li>
                     <li><a href="@Url.Action("Index","personas")">Personas</a></li>
@@ -46,7 +46,7 @@
 <script>
 
 
-    function modificarModal(nombre) {
+    function modificarModal3(nombre) {
         $.ajax({
             type: 'GET',
             traditional: true,
@@ -54,8 +54,8 @@
             data: { name: nombre },
             success: function (returnPayload) {
                 $(".modal-body").html(returnPayload);
-                $("#myModal").modal();
-                $("#myModal").modal({ show: true });
+                $("#myModal3").modal();
+                $("#myModal3").modal({ show: true });
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 console && console.log("request failed");
@@ -68,7 +68,7 @@
 
 </script>
 
-<div id="myModal" class="modal fade" role="dialog">
+<div id="myModal3" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
         <!-- Modal content-->

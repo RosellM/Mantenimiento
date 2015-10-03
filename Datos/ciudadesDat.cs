@@ -138,5 +138,18 @@ namespace Datos
             }
         
         }
+
+        public string obtenerEstadoPorIdCiudad(int idCiudad) 
+        
+        {
+            using (bdscecEntities bd = new bdscecEntities()) 
+            {
+
+                return (from e in bd.ciudad where e.id == idCiudad select e.estados.nombre).First();
+            
+            }
+           
+        
+        }
     }
 }

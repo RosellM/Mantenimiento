@@ -46,5 +46,11 @@ namespace Negocio
          return new ciudadesDat().eliminarEstado(id);
       }
 
+      public String obtenerEstadoPorIdCiudad(int id)
+      {
+
+          return new ciudadesDat().obtenerEstadoPorIdCiudad(id);
+      
+      }
     }
 }

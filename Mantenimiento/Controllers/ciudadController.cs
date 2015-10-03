@@ -63,5 +63,12 @@ namespace Mantenimiento.Controllers
             new ciudadModel().eliminarEstado(id);
             return RedirectToAction("Index", "ciudad", new ciudadModel());
         }
+        [HttpPost]
+        public String obtenerEstadoPorIdCiudad(int id)
+        {
+
+            return new ciudadModel().obtenerNombreEstadoPorIdciudad(id);
+        
+        }
     }
 }

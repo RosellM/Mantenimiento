@@ -5,7 +5,7 @@
 }
 
 <h2>Roles registrados</h2>
-<center><button onclick="location.href='@Url.Action("Index", "rol")';" class="btn btn-success" style="margin-bottom:50px; text-align:center; margin:2.53em auto;""><span class="glyphicon glyphicon-plus">Crear nuevo rol</span></button></center>
+<center><button onclick="location.href='@Url.Action("Index", "rol")';" class="btn btn-success" style="margin-bottom:50px; text-align:center; margin:2.53em auto;""><span class="glyphicon glyphicon-plus">@Mantenimiento.idiomas.idiomas.boton_nuevo</span></button></center>
 
 <table class ="table table-striped" style="max-width:960px; text-align:center; margin:2.53em auto;">
     <tbody>
@@ -22,7 +22,7 @@
                 <td> @m.nombre </td>
                 <td> @m.descripcion </td>
                 <td> <center><button onclick="location.href='@Url.Action("modificarRol", "rol", new { id = m.id })';" class=" btn btn-info"><span class="glyphicon glyphicon-pencil">Modificar</span></button> </center></td>
-                <td><center><button onclick="location.href='@Url.Action("Eliminar", "rol", new { id = m.id })';" class="btn btn-danger"><span class="glyphicon glyphicon-remove">Eliminar</span></button> </center></td>
+                <td><center><button onclick="location.href='@Url.Action("Eliminar", "rol", new { id = m.id })';" class="btn btn-danger"><span class="glyphicon glyphicon-remove">@Mantenimiento.idiomas.idiomas.boton_eliminar</span></button> </center></td>
 
             </tr>
         }

@@ -4,8 +4,6 @@
     Layout = null;
 }
 
-<h2>Nuevo</h2>
-
 @using (@Html.BeginForm("Nuevo", "Seccion"))
 {
     @Html.LabelFor(model => model.id_test)
@@ -14,5 +12,5 @@
     @Html.LabelFor(model => model.nombre)
     @Html.TextBoxFor(model => model.nombre, new { @class = "form-control", required = "required" })
 
-    <input type="submit" value="Registrar" class="btn btn-success btn-block margin-bottom-lg" />
+    <input type="submit" value="@Mantenimiento.idiomas.idiomas.boton_guardar" class="btn btn-success btn-block margin-bottom-lg" />
 }

@@ -1166,7 +1166,7 @@
     <EmbeddedResource Include="Properties\idiomas.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>idiomas.Designer.cs</LastGenOutput>
-      <CustomToolNamespace>Mantenimiento.Models</CustomToolNamespace>
+      <CustomToolNamespace>Mantenimiento.idiomas</CustomToolNamespace>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

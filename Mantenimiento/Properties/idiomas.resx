@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="aux_modal" xml:space="preserve">
+    <value>Escribe los campos correspondientes</value>
+  </data>
   <data name="boton_cancelar" xml:space="preserve">
     <value>Cancelar Operacion</value>
   </data>
@@ -137,6 +140,12 @@
   </data>
   <data name="boton_regresar" xml:space="preserve">
     <value>Regresar</value>
+  </data>
+  <data name="catalogo_personas" xml:space="preserve">
+    <value>Catálogo de Personas</value>
+  </data>
+  <data name="catalogo_preguntas" xml:space="preserve">
+    <value>Catálogos de Preguntas</value>
   </data>
   <data name="cuestionario_inicio" xml:space="preserve">
     <value>INICIAR TEST</value>
