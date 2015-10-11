@@ -5,18 +5,19 @@
 
 <h2>Test Registrados</h2>
 
-<center><button onclick="agregarModal()" class="btn btn-success" style="margin-bottom:50px; text-align:center; margin:2.53em auto;" "><span class=" glyphicon glyphicon-plus">@Mantenimiento.idiomas.idiomas.boton_nuevo</span></button></center>
+<center><button onclick="agregarModal()" class="btn btn-success" style="margin-bottom:50px; text-align:center; margin:2.53em auto;" "><span class=" glyphicon glyphicon-plus">@Mantenimiento.idiomas.idiomas.boton_nuevo nuevo test</span></button></center>
 <center><button onclick="location.href='@Url.Action("Index", "AdministracionCuestionario")';" class="btn btn-warning" style="margin-bottom:50px; text-align:center; margin:2.53em auto;" "><span class=" glyphicon glyphicon-arrow-left">Regresar</span></button></center>
 <table class="table table-striped" style="max-width:960px; text-align:center; margin:2.53em auto;">
     <tbody>
         <tr class="warning">
             <td> Nombre</td>
-            <td colspan="2"> <center>Opciones</center> </td>
+            <td colspan="3"> <center>Opciones</center> </td>
         </tr>
         @foreach (var m in Model.listarTest())
         {
             <tr>
                 <td> @m.nombre </td>
+                <td> <center><button onclick="AgregarSeccionModal(@m.id)" class="btn btn-link"><span class="glyphicon glyphicon-pencil">Agregar nueva seccion a este test</span></button> </center></td>
                 <td> <center><button onclick="modificarModal(@m.id)" class=" btn btn-info"><span class="glyphicon glyphicon-pencil">@Mantenimiento.idiomas.idiomas.boton_opcion_modificar</span></button> </center></td>
                 <td><center><button onclick="location.href='@Url.Action("eliminarTest", "Test", new { id = m.id })';" class="btn btn-danger"><span class="glyphicon glyphicon-remove">@Mantenimiento.idiomas.idiomas.boton_eliminar</span></button> </center></td>
             </tr>
@@ -61,6 +62,25 @@
             }
         });
 
+    }
+
+    function AgregarSeccionModal(ID)
+    {
+        $.ajax({
+            type: 'GET',
+            traditional: true,
+            url: '@Url.Action("Nuevo", "Seccion")',
+            data: { id: ID },
+            success: function (returnPayload) {
+                $(".modal-body").html(returnPayload);
+                $("#myModal").modal();
+                $("#myModal").modal({ show: true });
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console && console.log("request failed");
+                alert("error!##");
+            }
+        });
     }
 
 </script>

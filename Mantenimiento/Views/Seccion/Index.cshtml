@@ -5,21 +5,23 @@
 
 <h2>Secciones Registradas</h2>
 
-<center><button onclick="agregarModal()" class="btn btn-success" style="margin-bottom:50px; text-align:center; margin:2.53em auto;" "><span class=" glyphicon glyphicon-plus">@Mantenimiento.idiomas.idiomas.boton_nuevo</span></button></center>
+<center><button onclick="location.href='@Url.Action("Index", "Test")';" class="btn btn-success" style="margin-bottom:50px; text-align:center; margin:2.53em auto;" "><span class=" glyphicon glyphicon-plus">@Mantenimiento.idiomas.idiomas.boton_nuevo seccion</span></button></center>
 <center><button onclick="location.href='@Url.Action("Index", "AdministracionCuestionario")';" class="btn btn-warning" style="margin-bottom:50px; text-align:center; margin:2.53em auto;" "><span class=" glyphicon glyphicon-arrow-left">Regresar</span></button></center>
 
 <table class="table table-striped" style="max-width:960px; text-align:center; margin:2.53em auto;">
     <tbody>
         <tr class="warning">
-            <td> Nombre de la seccion </td>
+            
             <td> Nombre del test</td>
-            <td colspan="2"> <center>Opciones</center> </td>
+            <td> Nombre de la seccion </td>
+            <td colspan="3"> <center>Opciones</center> </td>
         </tr>
         @foreach (var m in Model.listarSeccion())
         {
             <tr>
-                <td> @m.nombre </td>
                 <td> @m.test.nombre </td>
+                <td> @m.nombre </td>
+                <td> <center><button onclick="agregarPreguntaModal(@m.id)" class="btn btn-link"><span class="glyphicon glyphicon-pencil">Agregar una pregunta a esta seccion</span></button> </center></td>
                 <td> <center><button onclick="modificarModal(@m.id)" class=" btn btn-info"><span class="glyphicon glyphicon-pencil">@Mantenimiento.idiomas.idiomas.boton_opcion_modificar</span></button> </center></td>
                 <td><center><button onclick="location.href='@Url.Action("eliminarSeccion", "Seccion", new { id = m.id })';" class="btn btn-danger"><span class="glyphicon glyphicon-remove">@Mantenimiento.idiomas.idiomas.boton_eliminar</span></button> </center></td>
             </tr>
@@ -47,12 +49,14 @@
 
     }
 
-    function agregarModal() {
 
+    function agregarPreguntaModal(ID)
+    {
         $.ajax({
             type: 'GET',
             traditional: true,
-            url: '@Url.Action("Nuevo", "Seccion")',
+            url: '@Url.Action("Nuevo", "Pregunta")',
+            data: { id: ID },
             success: function (returnPayload) {
                 $(".modal-body").html(returnPayload);
                 $("#myModal").modal();
@@ -63,7 +67,6 @@
                 alert("error!##");
             }
         });
-
     }
 
 </script>

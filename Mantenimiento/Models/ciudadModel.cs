@@ -24,12 +24,15 @@ namespace Mantenimiento.Models
 
         public estados state { get; set; }
         public int id { get; set; }
+        
         [Required(ErrorMessage = "Campo requerido")]
         public int idEstado { get; set; }
         public string nombreEstado { get; set; }
         [Required(ErrorMessage="Campo requerido")]
+        [Display(Name="Nombre de la ciudad")]
         public string nombre { get; set; }
         [Required(ErrorMessage = "Campo requerido")]
+        [Display(Name = "Descripcion")]
         public string descripcion { get; set; }
 
         public void guardarCiudad(ciudad ciudad)

@@ -33,7 +33,7 @@ namespace Mantenimiento.Controllers
             p.Direccion = persona.Direccion;
             p.idCiudad = persona.idCiudad;
             new personasNeg().NuevaPersona(p);
-            return View("Index",new personasModel());
+            return RedirectToAction("Index","personas",new personasModel());
         }
        
         public ActionResult modificarPersona(int id) 
@@ -59,13 +59,13 @@ namespace Mantenimiento.Controllers
             p.Apellidos = persona.Apellidos;
             p.Direccion = persona.Direccion;
             new personasModel().modificarPersonas(p);
-            return View("Index", new personasModel());
+            return RedirectToAction("Index", "personas", new personasModel());
         }
 
         public ActionResult eliminarPersona(int id)
         {
             new personasModel().eliminarPersonas(id);
-            return View("Index",new personasModel());
+            return RedirectToAction("Index", "personas", new personasModel());
         }
 
       

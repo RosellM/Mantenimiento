@@ -10,9 +10,9 @@
     @Html.HiddenFor(model=>model.id)
     @Html.LabelFor(model => model.nombre)
     @Html.ValidationMessageFor(model => model.nombre)
-    @Html.TextBoxFor(model => model.nombre, new { @class = "form-control" ,required="required" })
+    @Html.TextBoxFor(model => model.nombre, new { @class = "form-control", required = "required", placeholder = "Nombre del estado" })
     @Html.LabelFor(model => model.descripcion)
-    @Html.TextBoxFor(model => model.descripcion, new { @class = "form-control" ,required="required" })
+    @Html.TextBoxFor(model => model.descripcion, new { @class = "form-control" ,required="required", placeholder="Descripcion"})
     @Html.ValidationMessageFor(model => model.descripcion)
     <input type="submit" value="@Mantenimiento.idiomas.idiomas.boton_modificar" class="btn btn-success btn-block margin-bottom-lg" />
 

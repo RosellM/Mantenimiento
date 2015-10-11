@@ -13,8 +13,12 @@ namespace Datos
 
         public List<pregunta> listarpregunta()
         {
-            
-                return new bdscecEntities().pregunta.ToList();
+
+            var bd = new bdscecEntities();
+
+            List<pregunta> preguntas = (from s in bd.pregunta orderby s.seccion.id_test select s).ToList();
+
+            return preguntas;
             
         }
 

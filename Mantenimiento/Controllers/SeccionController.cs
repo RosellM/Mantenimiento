@@ -17,10 +17,20 @@ namespace Mantenimiento.Controllers
             return View(new SeccionModel());
         }
 
-        public ActionResult Nuevo()
+        public ActionResult Nuevo(int? id)
         {
 
-            return View(new SeccionModel());
+            if (id == null)
+            {
+                SeccionModel model = new SeccionModel();
+                return View(model);
+            }
+            else
+            {
+                SeccionModel model = new SeccionModel();
+                model.id_test= (int)id;
+                return View(model);
+            }
         }
 
         [HttpPost]
@@ -31,7 +41,7 @@ namespace Mantenimiento.Controllers
             p.id_test = Seccion.id_test;
             p.nombre = Seccion.nombre;
             new SeccionModel().NuevaSeccion(p);
-            return RedirectToAction("Index", "Seccion", new SeccionModel());
+            return RedirectToAction("Index", "Test", new TestModel());
 
         }
 

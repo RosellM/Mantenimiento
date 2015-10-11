@@ -1,25 +1,28 @@
 ﻿@model Mantenimiento.Models.PreguntaModel
 @{
     ViewBag.Title = "Preguntas registradas";
+
 }
 
 <h2>@Mantenimiento.idiomas.idiomas.catalogo_preguntas</h2>
 
-<center><button onclick="agregarModal()" class="btn btn-success" style="margin-bottom:50px; text-align:center; margin:2.53em auto;" "><span class=" glyphicon glyphicon-plus">Registrar nueva pregunta</span></button></center>
+<center><button onclick="location.href='@Url.Action("Index", "Seccion")';" class="btn btn-success" style="margin-bottom:50px; text-align:center; margin:2.53em auto;" "><span class=" glyphicon glyphicon-plus">Registrar nueva pregunta</span></button></center>
 <center><button onclick="location.href='@Url.Action("Index", "AdministracionCuestionario")';" class="btn btn-warning" style="margin-bottom:50px; text-align:center; margin:2.53em auto;" "><span class=" glyphicon glyphicon-arrow-left">Regresar</span></button></center>
 <table class="table table-striped" style="max-width:960px; text-align:center; margin:2.53em auto;">
     <tbody>
         <tr class="warning">
-            <td> Pregunta </td>
+            <td> Nombre de la test</td>
             <td> Nombre de la seccion</td>
+            <td> Pregunta </td>
             <td> Respuesta </td>
             <td colspan="2"> <center>Opciones</center> </td>
         </tr>
         @foreach (var m in Model.listarPregunta())
         {
             <tr>
-                <td> @m.pregunta1 </td>
+                <td> @m.seccion.test.nombre </td>
                 <td> @m.seccion.nombre </td>
+                <td> @m.pregunta1 </td>
                 <td> @m.respuesta </td>
                 <td> <center><button onclick="modificarModal(@m.id)" class=" btn btn-info"><span class="glyphicon glyphicon-pencil">Modificar</span></button> </center></td>
                 <td><center><button onclick="location.href='@Url.Action("eliminarPregunta", "Pregunta", new { id = m.id })';" class="btn btn-danger"><span class="glyphicon glyphicon-remove">@Mantenimiento.idiomas.idiomas.boton_eliminar</span></button> </center></td>
@@ -48,24 +51,6 @@
 
     }
 
-    function agregarModal() {
-
-        $.ajax({
-            type: 'GET',
-            traditional: true,
-            url: '@Url.Action("Nuevo", "Pregunta")',
-            success: function (returnPayload) {
-                $(".modal-body").html(returnPayload);
-                $("#myModal").modal();
-                $("#myModal").modal({ show: true });
-            },
-            error: function (xhr, ajaxOptions, thrownError) {
-                console && console.log("request failed");
-                alert("error!##");
-            }
-        });
-
-    }
 
 </script>
 <div id="myModal" class="modal fade" role="dialog">

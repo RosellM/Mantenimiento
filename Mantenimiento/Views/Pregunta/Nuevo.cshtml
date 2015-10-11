@@ -5,9 +5,12 @@
 }
 @using (@Html.BeginForm("Nuevo", "Pregunta"))
 {
-    @Html.LabelFor(model=> model.id_seccion)
-    @Html.DropDownListFor(model => model.id_seccion, Model.listaSeccion(), new { @class = "form-control", required = "required" })
-   
+    if (@Model.id_seccion == null) 
+    {
+        @Html.LabelFor(model => model.id_seccion)
+        @Html.DropDownListFor(model => model.id_seccion, Model.listaSeccion(), new { @class = "form-control", required = "required" })
+    }
+    @Html.HiddenFor(model=>model.id_seccion);
     @Html.LabelFor(model => model.pregunta1)
     @Html.TextBoxFor(model => model.pregunta1, new { @class = "form-control", required = "required" })
 

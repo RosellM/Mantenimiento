@@ -17,10 +17,20 @@ namespace Mantenimiento.Controllers
             return View(new PreguntaModel());
         }
 
-        public ActionResult Nuevo() 
+        public ActionResult Nuevo(int? id) 
         {
-
-            return View(new PreguntaModel());
+            if (id == null)
+            {
+                PreguntaModel model = new PreguntaModel();
+                return View(new PreguntaModel());
+            }
+            else 
+            {
+                PreguntaModel model = new PreguntaModel();
+                model.id_seccion= (int)id;
+                return View(model);
+            }
+           
         }
 
         [HttpPost]
@@ -32,7 +42,7 @@ namespace Mantenimiento.Controllers
             p.pregunta1 = pregunta.pregunta1;
             p.respuesta = pregunta.respuesta;
             new PreguntaModel().NuevaPregunta(p);
-            return RedirectToAction("Index","Pregunta" ,new PreguntaModel());
+            return RedirectToAction("Index","Seccion" ,new SeccionModel());
 
         }
 

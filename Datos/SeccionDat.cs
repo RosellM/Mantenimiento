@@ -14,7 +14,13 @@ namespace Datos
         public List<seccion> listarseccion()
         {
 
-            return new bdscecEntities().seccion.ToList();
+            var bd = new bdscecEntities();
+
+            List<seccion> secciones = (from s in bd.seccion orderby s.id_test select s).ToList();
+
+            return secciones;
+
+            
 
         }
 
