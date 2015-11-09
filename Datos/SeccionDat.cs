@@ -72,7 +72,7 @@ namespace Datos
             {
                 getseccion.id = seccion.id;
                 getseccion.id_test = seccion.id_test;
-                getseccion.nombre = seccion.nombre;
+                getseccion.status = seccion.status;
 
             }
 

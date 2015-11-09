@@ -9,7 +9,7 @@
         <EntityTypeShape EntityType="bdscecModel.estados" Width="1.5" PointX="5.75" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="bdscecModel.personas" Width="1.5" PointX="10.25" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="bdscecModel.pregunta" Width="1.5" PointX="5" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdscecModel.resultado" Width="1.5" PointX="7.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdscecModel.resultado" Width="3.75" PointX="7.25" PointY="4.375" IsExpanded="true" />
         <EntityTypeShape EntityType="bdscecModel.roles" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="bdscecModel.seccion" Width="1.5" PointX="5" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="bdscecModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />

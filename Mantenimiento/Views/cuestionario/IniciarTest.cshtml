@@ -34,6 +34,7 @@
     </div>
 </div>
 <script>
+    var id_seccion = 0;
     var x = 0;
     var array_names = new Array();
     var array_values = new Array();
@@ -50,7 +51,7 @@
         type: 'POST',
         traditional: true,
         url:'@Url.Action("enviarRespuestas", "cuestionario")',
-        data: { array_id: array_id, array_value:array_values},
+        data: { array_id: array_id, array_value:array_values,id_seccion : id_seccion},
         success: function (returnPayload) {
             $(".modal-body").html(returnPayload);
             $("#myModal").modal();
@@ -67,40 +68,35 @@
 <form id="form" method="post">
     <table class="table table-striped" style="max-width:960px; text-align:center; margin:2.53em auto;">
         <tbody>
+           @{
+               string x = "name";
 
-            @foreach (var m in Model.listaPreguntas)
+               int c = 0;
+           }
+            @foreach (var i in @Model.listaPreguntas)
             {
+              <script>
 
-                Model.Auxiliarname = 0;
+                  id_seccion = @i.id_seccion;
+
+              </script>
                 <tr>
-                    <td><p> @m.pregunta.pregunta1 </p></td>
-                    @foreach (var r in @m.resultados)
-                    {
+            <td><span class="label label-primary">@i.pregunta1</span></td>
+            <td><span class="label label-warning">@i.respuesta</span><input type="radio" name="respuesta_@i.id" value="@i.respuesta" />       </td>
+            <td><span class="label label-warning">@i.reactivo_a</span><input type="radio" name="respuesta_@i.id" value="@i.reactivo_a" />    </td>
+            <td><span class="label label-warning">@i.reactivo_b</span><input type="radio" name="respuesta_@i.id" value="@i.reactivo_b" />    </td>
+            <td><span class="label label-warning">@i.reactivo_c</span><input type="radio" name="respuesta_@i.id" value="@i.reactivo_c" />    </td>
+            
 
-                        if (Model.Auxiliarname == 0)
-                        {
-                            <td>
-                                <label> @m.pregunta.respuesta </label>
-                                <input type="radio" id="@m.pregunta.respuesta" name="respuesta_@m.pregunta.id" value="@m.pregunta.respuesta" required />
-                            </td>
-                        }
-
-                        <td>
-                            <label> @r.descripcion </label>
-                            <input type="radio" id="@r.descripcion" name="respuesta_@m.pregunta.id" value="@r.descripcion" required />
-                        </td>
-
-                        Model.Auxiliarname++;
-
-                    }
                 </tr>
-                <script>
-                    array_names[x] = "respuesta_@m.pregunta.id";
-                    array_id[x]  = @m.pregunta.id;
-                    x++;
-                </script>
 
+    <script>
+        array_names.push("respuesta_@i.id");
+        array_id.push("@i.id");
+    </script>
+                c++; 
             }
+          
         </tbody>
     </table>
 

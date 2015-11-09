@@ -26,20 +26,16 @@ namespace Negocio
             return new cuestionarioDat().ListarTest();
         }
 
-        public List<cuestionarioEntidad> cuestionario(int id_seccion) 
+        public List<pregunta> cuestionario(int id_seccion) 
         {
             return new cuestionarioDat().obtenerCuestionarios(id_seccion);
         }
 
-       public List<resultado> ListarResultados()
-        {
-          
-            return new cuestionarioDat().resultados();
-        }
-
-       public List<String> calificarCuestionario(string[] ids_pregunta, string[] respuesta)
+       public List<String> calificarCuestionario(string[] ids_pregunta, string[] respuesta,int id_seccion)
        {
+
            cuestionarioDat datos = new cuestionarioDat();
+           datos.persistirResultado(ids_pregunta, respuesta);
            for (var z = 0; z < ids_pregunta.Count(); z++) 
            {
             pregunta pregunta =    datos.obtenerRespuestasCuestionario(Int32.Parse(ids_pregunta[z]));
@@ -54,7 +50,8 @@ namespace Negocio
                    calificaciones.Add("<strong>" +  pregunta.pregunta1 + " Incorrecta</br><strong>");
                }
            }
-
+           /*actualizar status de seccion*/
+           datos.actualizarStatusSeccion(id_seccion);
            return calificaciones;
        }
 

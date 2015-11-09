@@ -9,6 +9,7 @@
 
 namespace Entidades
 {
+    using Datos;
     using System;
     using System.Collections.Generic;
     
@@ -23,6 +24,9 @@ namespace Entidades
         public int id_seccion { get; set; }
         public string pregunta1 { get; set; }
         public string respuesta { get; set; }
+        public string reactivo_a { get; set; }
+        public string reactivo_b { get; set; }
+        public string reactivo_c { get; set; }
     
         public virtual seccion seccion { get; set; }
         public virtual ICollection<resultado> resultado { get; set; }

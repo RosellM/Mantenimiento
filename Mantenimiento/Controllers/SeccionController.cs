@@ -39,7 +39,7 @@ namespace Mantenimiento.Controllers
 
             seccion p = new seccion();
             p.id_test = Seccion.id_test;
-            p.nombre = Seccion.nombre;
+            p.status = Seccion.nombre;
             new SeccionModel().NuevaSeccion(p);
             return RedirectToAction("Index", "Test", new TestModel());
 
@@ -49,7 +49,7 @@ namespace Mantenimiento.Controllers
         {
             seccion seccion = new SeccionModel().obtenerSeccionPorId(id);
             SeccionModel pm = new SeccionModel();
-            pm.nombre = seccion.nombre;
+            pm.nombre = seccion.status;
             pm.id_test = seccion.id_test;
             pm.id = seccion.id;
             return View(pm);

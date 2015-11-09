@@ -44,17 +44,22 @@ namespace Mantenimiento.Controllers
             else
                 ViewBag.user = null;
             cuestionarioModel model = new cuestionarioModel();
+          
             model.cuestionario(id);
+          
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult enviarRespuestas(string [] array_id,string [] array_value)
+        public ActionResult enviarRespuestas(string [] array_id,string [] array_value,string id_Seccion)
         {
 
             cuestionarioModel model = new cuestionarioModel();
-            return Json(model.verResultados(array_id,array_value));
+            return Json(model.verResultados(array_id,array_value,id_Seccion));
+
 
         }
+
+      
     }
 }

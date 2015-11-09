@@ -65,7 +65,7 @@ namespace Mantenimiento.Models
             seccion s = new seccion();
             s.id = seccion.id;
             s.id_test =seccion.id_test;
-            s.nombre = seccion.nombre;
+            s.status = seccion.nombre;
             new SeccionNeg().modificarseccion(s);
 
         }

@@ -17,6 +17,10 @@ namespace Mantenimiento.Models
         [Display(Name = "Escribe respuesta")]
         public string respuesta { get; set; }
 
+        public string reactivo_a { get; set; }
+        public string reactivo_b { get; set; }
+        public string reactivo_c { get; set; }
+
         [Required(ErrorMessage="Campo requerido")]
         [Display(Name="Elija el seccion")]
         public int id_seccion { get; set; }
@@ -44,7 +48,7 @@ namespace Mantenimiento.Models
             {
                 listItems.Add(new SelectListItem
                 {
-                    Text = i.nombre,
+                    Text = i.status,
                     Value = i.id.ToString()
                 });
             }

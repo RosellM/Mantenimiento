@@ -40,6 +40,9 @@
           <Property Name="id_seccion" Type="int" Nullable="false" />
           <Property Name="respuesta" Type="varchar" MaxLength="250" Nullable="false" />
           <Property Name="pregunta" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="reactivo_a" Type="varchar" MaxLength="250" />
+          <Property Name="reactivo_b" Type="varchar" MaxLength="250" />
+          <Property Name="reactivo_c" Type="varchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="respuesta_cuestionario">
           <Key>
@@ -54,7 +57,8 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="descripcion" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="idPregunta" Type="int" Nullable="false" />
+          <Property Name="resultado_seleccionado" Type="varchar" MaxLength="250" Nullable="false" />
         </EntityType>
         <EntityType Name="roles">
           <Key>
@@ -71,6 +75,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_test" Type="int" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -277,13 +282,17 @@
           <Property Name="id_seccion" Type="Int32" Nullable="false" />
           <NavigationProperty Name="seccion" Relationship="bdscecModel.FK_pregunta_seccion" FromRole="pregunta" ToRole="seccion" />
           <Property Name="respuesta" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="reactivo_a" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="reactivo_b" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="reactivo_c" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="resultado">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="id" Type="Int32" annotation:StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idPregunta" Type="Int32" Nullable="false" />
+          <Property Name="resultado_seleccionado" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="roles">
           <Key>
@@ -304,6 +313,7 @@
           <Property Name="nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="test" Relationship="Self.FK_seccion_test" FromRole="seccion" ToRole="test" />
           <NavigationProperty Name="pregunta" Relationship="bdscecModel.FK_pregunta_seccion" FromRole="seccion" ToRole="pregunta" />
+          <Property Name="status" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -518,6 +528,9 @@
           <EntitySetMapping Name="pregunta">
             <EntityTypeMapping TypeName="bdscecModel.pregunta">
               <MappingFragment StoreEntitySet="pregunta">
+                <ScalarProperty Name="reactivo_c" ColumnName="reactivo_c" />
+                <ScalarProperty Name="reactivo_b" ColumnName="reactivo_b" />
+                <ScalarProperty Name="reactivo_a" ColumnName="reactivo_a" />
                 <ScalarProperty Name="respuesta" ColumnName="respuesta" />
                 <ScalarProperty Name="id_seccion" ColumnName="id_seccion" />
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -528,7 +541,8 @@
           <EntitySetMapping Name="resultado">
             <EntityTypeMapping TypeName="bdscecModel.resultado">
               <MappingFragment StoreEntitySet="resultado">
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="resultado_seleccionado" ColumnName="resultado_seleccionado" />
+                <ScalarProperty Name="idPregunta" ColumnName="idPregunta" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 </MappingFragment>
             </EntityTypeMapping>
@@ -545,6 +559,7 @@
           <EntitySetMapping Name="seccion">
             <EntityTypeMapping TypeName="bdscecModel.seccion">
               <MappingFragment StoreEntitySet="seccion">
+                <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="id_test" ColumnName="id_test" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />

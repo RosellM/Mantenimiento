@@ -30,7 +30,7 @@ namespace Datos
                 try
                 {
                     resultado resultado = new resultado();
-                    resultado.descripcion = pregunta.respuesta;
+                  
                     bd.resultado.Add(resultado);
                     bd.pregunta.Add(pregunta);
                     bd.SaveChanges();

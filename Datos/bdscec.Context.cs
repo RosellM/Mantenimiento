@@ -9,6 +9,7 @@
 
 namespace Entidades
 {
+    using Datos;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
@@ -36,5 +37,6 @@ namespace Entidades
         public virtual DbSet<test> test { get; set; }
         public virtual DbSet<usuario> usuario { get; set; }
         public virtual DbSet<usuarioRol> usuarioRol { get; set; }
+      
     }
 }
